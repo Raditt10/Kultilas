@@ -1,52 +1,321 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Kultilas - Sistem Informasi Ekstrakurikuler
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel](https://img.shields.io/badge/Laravel-12.38.1-FF2D20?style=flat&logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.3.25-777BB4?style=flat&logo=php&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
+![Alpine.js](https://img.shields.io/badge/Alpine.js-3.x-8BC0D0?style=flat&logo=alpine.js&logoColor=white)
 
-## About Laravel
+Sistem Informasi Manajemen Ekstrakurikuler Modern untuk **SMKN 13 Bandung**. Platform ini memudahkan pengelolaan kegiatan ekstrakurikuler dengan fitur lengkap untuk administrator, pembina, pelatih, dan siswa.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📋 Daftar Isi
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Fitur Utama](#-fitur-utama)
+- [Teknologi](#-teknologi)
+- [Prasyarat](#-prasyarat)
+- [Instalasi](#-instalasi)
+- [Konfigurasi](#-konfigurasi)
+- [Menjalankan Aplikasi](#-menjalankan-aplikasi)
+- [Role & Akses](#-role--akses)
+- [Struktur Database](#-struktur-database)
+- [Troubleshooting](#-troubleshooting)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ✨ Fitur Utama
 
-## Learning Laravel
+### Untuk Semua Pengguna
+- 🎨 **Modern UI/UX** dengan Tailwind CSS dan Alpine.js
+- 🌓 **Dark Mode** dengan persistent storage
+- 📱 **Responsive Design** untuk semua perangkat
+- ✍️ **Typing Animation** pada hero section
+- 🎴 **Flip Card Animation** untuk tampilan ekstrakurikuler
+- 🖼️ **Profile Photo Upload** dengan preview
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Fitur Administrator
+- 📊 Dashboard dengan statistik lengkap
+- 👥 Manajemen pengguna (Pembina, Pelatih, Siswa)
+- 🎯 Kelola semua ekstrakurikuler
+- 📰 Konten dinamis (Berita, Pencapaian, Tips)
+- 📈 Laporan dan monitoring keseluruhan
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Fitur Pembina/Pelatih
+- 🏫 Kelola ekstrakurikuler yang dibina/dilatih
+- ✅ Presensi digital siswa
+- 🏆 Catat prestasi siswa
+- 📋 Lihat daftar anggota
+- 📊 Dashboard khusus pembina/pelatih
 
-## Laravel Sponsors
+### Fitur Siswa
+- 📝 Pendaftaran ekstrakurikuler online
+- 👀 Lihat jadwal dan informasi eskul
+- 🏅 Riwayat prestasi pribadi
+- 📅 Track kehadiran
+- 🔔 Notifikasi dan pengumuman
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛠 Teknologi
 
-### Premium Partners
+### Backend
+- **Laravel 12.38.1** - PHP Framework
+- **PHP 8.3.25** - Server-side Language
+- **MySQL** - Relational Database
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Frontend
+- **Blade** - Template Engine
+- **Tailwind CSS 3.x** - Utility-first CSS Framework
+- **Alpine.js 3.x** - Lightweight JavaScript Framework
+- **Vite** - Frontend Build Tool
 
-## Contributing
+### UI Features
+- Glassmorphism Effects
+- CSS 3D Transforms
+- Gradient Design
+- Custom Animations
+- Google Fonts (Poppins)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 📦 Prasyarat
 
-## Code of Conduct
+Pastikan sistem Anda memiliki:
+
+- **PHP** >= 8.2
+- **Composer** >= 2.0
+- **Node.js** >= 18.x & **NPM** >= 9.x
+- **MySQL** >= 8.0 atau **MariaDB** >= 10.3
+- **Git**
+
+Atau gunakan **Laragon** untuk development yang lebih mudah.
+
+## 🚀 Instalasi
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/Raditt10/Kult1las-native.git
+cd Kult1las-native
+```
+
+### 2. Install Dependencies
+
+```bash
+# Install PHP dependencies
+composer install
+
+# Install Node dependencies
+npm install
+```
+
+### 3. Setup Environment
+
+```bash
+# Copy file environment
+copy .env.example .env
+
+# Generate application key
+php artisan key:generate
+```
+
+### 4. Konfigurasi Database
+
+Edit file `.env` dan sesuaikan dengan konfigurasi database Anda:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_eskul
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 5. Buat Database
+
+Buat database baru dengan nama `db_eskul`:
+
+```sql
+CREATE DATABASE db_eskul;
+```
+
+Atau import file SQL yang tersedia:
+
+```bash
+# Import database dari file SQL
+mysql -u root -p db_eskul < database/db_eskul.sql
+```
+
+### 6. Migrasi & Seeding
+
+```bash
+# Jalankan migrasi database
+php artisan migrate
+
+# (Optional) Seed data dummy
+php artisan db:seed
+php artisan db:seed --class=DashboardContentSeeder
+```
+
+## ⚙️ Konfigurasi
+
+### File Storage
+
+Buat symbolic link untuk public storage:
+
+```bash
+php artisan storage:link
+```
+
+### Cache Optimization
+
+```bash
+# Clear all cache
+php artisan config:clear
+php artisan view:clear
+php artisan cache:clear
+php artisan route:clear
+
+# Untuk production, optimize cache
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+### Asset Compilation
+
+```bash
+# Development mode (watch untuk perubahan)
+npm run dev
+
+# Production build
+npm run build
+```
+
+## 🎯 Menjalankan Aplikasi
+
+### Development Server
+
+**Opsi 1: Laravel Artisan**
+```bash
+php artisan serve
+```
+Aplikasi akan berjalan di `http://localhost:8000`
+
+**Opsi 2: Laragon**
+- Buka Laragon
+- Klik "Start All"
+- Akses `http://kultilas.test` atau `http://localhost/Kultilas`
+
+**Opsi 3: Vite Dev Server**
+```bash
+# Terminal 1 - PHP Server
+php artisan serve
+
+# Terminal 2 - Vite Dev Server
+npm run dev
+```
+
+### Production Deployment
+
+```bash
+# Build assets
+npm run build
+
+# Optimize Laravel
+php artisan optimize
+
+# Set permissions (Linux/Mac)
+chmod -R 775 storage bootstrap/cache
+```
+
+## 👥 Role & Akses
+
+### Default Login Credentials
+
+Setelah seeding, gunakan kredensial berikut:
+
+**Administrator**
+- Email: `admin@kultilas.com`
+- Password: `password`
+- Route: `/login`
+
+**Pembina**
+- Email: `pembina@kultilas.com`
+- Password: `password`
+- Route: `/login`
+
+**Pelatih**
+- Email: `pelatih@kultilas.com`
+- Password: `password`
+- Route: `/login`
+
+**Siswa**
+- NIS: Lihat di database
+- Password: `password`
+- Route: `/siswa/login`
+
+### Halaman Utama
+- **Homepage**: `http://localhost:8000/`
+- **Admin Dashboard**: `http://localhost:8000/admin/dashboard`
+- **Pembina Dashboard**: `http://localhost:8000/pembina/dashboard`
+- **Siswa Dashboard**: `http://localhost:8000/siswa/dashboard`
+
+## 🗃 Struktur Database
+
+### Tabel Utama
+
+- `pengguna` - Data pengguna (Admin, Pembina, Pelatih)
+- `siswa` - Data siswa
+- `eskul` - Data ekstrakurikuler
+- `pendaftaran_eskul` - Pendaftaran siswa ke eskul
+- `presensi` - Kehadiran siswa
+- `prestasi` - Pencapaian siswa
+- `dashboard_contents` - Konten dinamis (News, Achievement, Tips)
+
+### ERD Relationship
+
+```
+pengguna (1) ---> (N) eskul (pembina_id)
+pengguna (1) ---> (N) eskul (pelatih_id)
+siswa (1) ---> (N) pendaftaran_eskul
+eskul (1) ---> (N) pendaftaran_eskul
+pendaftaran_eskul (1) ---> (N) presensi
+pendaftaran_eskul (1) ---> (N) prestasi
+```
+
+## 🐛 Troubleshooting
+
+### Error: Class not found
+```bash
+composer dump-autoload
+```
+
+### Error: Storage link
+```bash
+php artisan storage:link
+```
+
+### Error: Permission denied (Linux/Mac)
+```bash
+sudo chmod -R 775 storage
+sudo chmod -R 775 bootstrap/cache
+```
+
+### Error: Mix manifest not found
+```bash
+npm run build
+```
+
+### Clear all cache
+```bash
+php artisan optimize:clear
+```
+
+## 📞 Support
+
+Untuk bantuan lebih lanjut, silakan hubungi:
+- Email: info@kultilas.sch.id
+- Telp: (021) 1234-5678
+
+## 🤝 Kontributor
+
+Dikembangkan oleh Tim Pengembang Kultilas untuk SMKN 13 Bandung.
+
+## 📝 Code of Conduct
 
 In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
