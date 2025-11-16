@@ -308,12 +308,12 @@ php artisan optimize:clear
 ## 📞 Support
 
 Untuk bantuan lebih lanjut, silakan hubungi:
-- Email: info@kultilas.sch.id
+- Email: iniakuraditt@gmail.com
 - Telp: (021) 1234-5678
 
 ## 🤝 Kontributor
 
-Dikembangkan oleh Tim Pengembang Kultilas untuk SMKN 13 Bandung.
+Dikembangkan oleh Tim Pengembang Rafaditya S untuk SMKN 13 Bandung.
 
 ## 📝 Code of Conduct
 
