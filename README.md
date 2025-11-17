@@ -5,6 +5,10 @@
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
 ![Alpine.js](https://img.shields.io/badge/Alpine.js-3.x-8BC0D0?style=flat&logo=alpine.js&logoColor=white)
 
+## Deskripsi Singkat
+
+Kultilas adalah sistem informasi modern untuk manajemen ekstrakurikuler di SMKN 13 Bandung. Website ini memudahkan pendaftaran, presensi, pencatatan prestasi, dan pengelolaan seluruh kegiatan ekstrakurikuler secara digital, dengan tampilan profesional, fitur lengkap, dan akses khusus untuk admin, pembina, pelatih, serta siswa.
+
 Sistem Informasi Manajemen Ekstrakurikuler Modern untuk **SMKN 13 Bandung**. Platform ini memudahkan pengelolaan kegiatan ekstrakurikuler dengan fitur lengkap untuk administrator, pembina, pelatih, dan siswa.
 
 ## 📋 Daftar Isi
