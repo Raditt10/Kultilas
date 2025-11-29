@@ -201,7 +201,6 @@
                     ]);
                 }
                 @endphp
-                @endphp
                 
                 @foreach($achievements as $achievement)
                 <div class="bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 p-4 rounded-lg border border-yellow-200 dark:border-yellow-700 hover:shadow-md transition-all cursor-pointer">
