@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama_lengkap', 100);
             $table->enum('role', ['admin', 'pembina', 'pelatih']);
             $table->timestamp('terakhir_login')->nullable();
+            $table->string('remember_token', 100)->nullable();
         });
     }
 
