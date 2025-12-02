@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Portal Siswa - Kultilas')</title>
+    <title>@yield('title', 'Portal Siswa')</title> <!-- Diubah menjadi Portal Siswa saja -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -101,7 +101,26 @@
                 </svg>
             </button>
             @endif
-            <h1 class="text-xl font-bold text-gray-800 dark:text-white">Portal Siswa - Kultilas</h1>
+            
+           <!-- Di dalam top bar layout -->
+            @if(!request()->routeIs('siswa.login') && !request()->routeIs('siswa.register'))
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white">
+                    @if(request()->routeIs('siswa.dashboard'))
+                        Portal Siswa - Kultilas
+                    @elseif(request()->routeIs('siswa.eskul'))
+                        Daftar Eskul
+                    @elseif(request()->routeIs('siswa.presensi'))
+                        Presensi
+                    @elseif(request()->routeIs('siswa.prestasi'))
+                        Prestasi
+                    @elseif(request()->routeIs('siswa.profile'))
+                        Profil Saya
+                    @else
+                        Portal Siswa
+                    @endif
+                </h1>
+            @endif
+            
             <button @click="darkMode = !darkMode" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 focus:outline-none transition-colors">
                 <svg x-show="!darkMode" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>

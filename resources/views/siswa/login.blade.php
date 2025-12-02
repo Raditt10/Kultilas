@@ -42,11 +42,6 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    .logo-badge {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.3);
-    }
-    
     .input-group {
         position: relative;
         transition: all 0.3s ease;
@@ -142,8 +137,8 @@
                 <!-- Logo & School Name -->
                 <div class="flex items-center space-x-3">
                     <div class="flex-shrink-0">
-                        <div class="w-10 h-10 bg-gradient-to-br from-green-600 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
-                            <img src="{{ asset('images/logo13.png') }}" alt="Logo Kultilas" class="h-full w-full object-contain drop-shadow-md">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center">
+                            <img src="{{ asset('images/logo13.png') }}" alt="Logo Kultilas" class="h-8 w-8 object-contain">
                         </div>
                     </div>
                     <div class="hidden sm:block">
