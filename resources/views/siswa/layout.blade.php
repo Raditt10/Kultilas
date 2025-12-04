@@ -103,23 +103,23 @@
             @endif
             
            <!-- Di dalam top bar layout -->
-            @if(!request()->routeIs('siswa.login') && !request()->routeIs('siswa.register'))
-                <h1 class="text-xl font-bold text-gray-800 dark:text-white">
-                    @if(request()->routeIs('siswa.dashboard'))
-                        Portal Siswa - Kultilas
-                    @elseif(request()->routeIs('siswa.eskul'))
-                        Daftar Eskul
-                    @elseif(request()->routeIs('siswa.presensi'))
-                        Presensi
-                    @elseif(request()->routeIs('siswa.prestasi'))
-                        Prestasi
-                    @elseif(request()->routeIs('siswa.profile'))
-                        Profil Saya
-                    @else
-                        Portal Siswa
-                    @endif
-                </h1>
-            @endif
+        @if(!request()->routeIs('siswa.login') && !request()->routeIs('siswa.register'))
+            <h1 class="text-xl font-bold text-gray-800 dark:text-white">
+                @if(request()->routeIs('siswa.dashboard'))
+                    Portal Siswa - Kultilas
+                @elseif(request()->routeIs('siswa.eskul'))
+                    Daftar Eskul
+                @elseif(request()->routeIs('siswa.presensi'))
+                    Presensi
+                @elseif(request()->routeIs('siswa.prestasi'))
+                    Prestasi
+                @elseif(request()->routeIs('siswa.profile'))
+                    Profil Saya
+                @else
+                    Portal Siswa
+                @endif
+            </h1>
+        @endif
             
             <button @click="darkMode = !darkMode" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 focus:outline-none transition-colors">
                 <svg x-show="!darkMode" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
