@@ -8,7 +8,11 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f766e 100%);
+        background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 118, 110, 0.8)), url('/images/smkn13.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        filter: blur(3px);
         z-index: -1;
     }
     
