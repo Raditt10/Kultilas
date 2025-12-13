@@ -8,12 +8,32 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 118, 110, 0.8)), url('/images/smkn13.jpg');
+        background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 118, 110, 0.7) 100%), url('/images/smkn13.jpg');
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
-        filter: blur(3px);
+        filter: blur(4px) brightness(0.95);
         z-index: -1;
+        animation: backgroundShift 20s ease-in-out infinite;
+    }
+    
+    @keyframes backgroundShift {
+        0%, 100% { filter: blur(4px) brightness(0.95); }
+        50% { filter: blur(4px) brightness(0.98); }
+    }
+    
+    .full-bg::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 50% 50%, rgba(30, 41, 59, 0.1) 0%, transparent 100%);
+        pointer-events: none;
     }
     
     .full-bg::before {
@@ -24,9 +44,10 @@
         right: 0;
         bottom: 0;
         background-image: 
-            radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
         animation: pulse 4s ease-in-out infinite;
+        pointer-events: none;
     }
     
     @keyframes pulse {
@@ -128,6 +149,19 @@
     
     header {
         transition: transform 0.3s ease-in-out;
+    }
+    
+    .footer-text {
+        color: #047857;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        text-shadow: 0 0 10px rgba(4, 120, 87, 0.5);
+        animation: footerGlow 3s ease-in-out infinite;
+    }
+    
+    @keyframes footerGlow {
+        0%, 100% { text-shadow: 0 0 10px rgba(4, 120, 87, 0.5); }
+        50% { text-shadow: 0 0 20px rgba(4, 120, 87, 0.8), 0 0 30px rgba(16, 185, 129, 0.4); }
     }
 </style>
 
@@ -353,7 +387,7 @@
         
         <!-- Footer Info -->
         <div class="mt-8 text-center">
-            <p class="text-white/80 text-sm">
+            <p class="footer-text text-sm">
                 © 2024 SMKN 13. Semua hak dilindungi.
             </p>
         </div>
