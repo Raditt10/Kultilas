@@ -68,10 +68,10 @@
     <nav class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-md fixed w-full top-0 z-50 border-b border-gray-200 dark:border-gray-800 transition-colors duration-200">
         <div class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
-                <!-- Logo & Brand -->
+               <!-- Logo & Brand -->
                 <div class="flex items-center gap-3">
-                    <div class="h-14 w-14 bg-gradient-to-br from-green-500 to-green-700 dark:from-green-600 dark:to-green-800 rounded-xl flex items-center justify-center p-2 shadow-lg">
-                        <img src="{{ asset('images/logo13.png') }}" alt="Logo Kultilas" class="h-full w-full object-contain drop-shadow-md">
+                    <div class="h-14 w-14 rounded-xl flex items-center justify-center p-2 bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm">
+                        <img src="{{ asset('images/logo13.png') }}" alt="Logo Kultilas" class="h-full w-full object-contain">
                     </div>
                     <div>
                         <h1 class="text-2xl font-bold bg-gradient-to-r from-green-700 to-green-600 dark:from-green-400 dark:to-green-300 bg-clip-text text-transparent">Kultilas</h1>
