@@ -79,7 +79,6 @@
                     </div>
                 </div>
 
-                <!-- Navigation Links -->
                 <div class="hidden md:flex gap-2 items-center bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-2 rounded-full shadow-inner">
                     <a href="#login" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white font-medium rounded-full transition-all duration-300 hover:shadow-md hover:scale-105 transform">
                         Portal
