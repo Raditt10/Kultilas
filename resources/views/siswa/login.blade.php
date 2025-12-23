@@ -1,21 +1,40 @@
-@extends('siswa.layout')
-@section('title', 'Login Siswa')
-@section('content')
-<style>
-    .full-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 118, 110, 0.7) 100%), url('/images/smkn13.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        filter: blur(4px) brightness(0.95);
-        z-index: -1;
-        animation: backgroundShift 20s ease-in-out infinite;
-    }
+<!DOCTYPE html>
+<html lang="id" x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }" x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Siswa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: transparent;
+        }
+        .full-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 118, 110, 0.7) 100%), url('/images/smkn13.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(4px) brightness(0.95);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
     
     @keyframes backgroundShift {
         0%, 100% { filter: blur(4px) brightness(0.95); }
@@ -246,7 +265,8 @@
         color: #047857;
     }
 </style>
-
+</head>
+<body>
 <div class="full-bg"></div>
 
 <!-- Header Navigation -->
@@ -258,7 +278,7 @@
                 <div class="flex items-center space-x-3">
                     <div class="flex-shrink-0">
                         <div class="w-10 h-10 rounded-xl flex items-center justify-center">
-                            <img src="{{ asset('images/logo13.png') }}" alt="Logo Kultilas" class="h-8 w-8 object-contain">
+                            <img src="{{ asset('images/logo13.png') }}" alt="Logo SMKN 13" class="h-8 w-8 object-contain">
                         </div>
                     </div>
                     <div class="hidden sm:block">
@@ -335,7 +355,15 @@
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
                         </svg>
-                        Login
+                        Login Siswa
+                    </span>
+                </a>
+                <a href="{{ route('login') }}" class="block px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-lg transition-all duration-200">
+                    <span class="flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                        </svg>
+                        Login Admin
                     </span>
                 </a>
                 <a href="{{ route('siswa.register') }}" class="block px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-lg transition-all duration-200">
@@ -356,7 +384,7 @@
         <!-- Logo Badge -->
         <div class="text-center mb-8 floating">
              <div class="inline-flex items-center justify-center w-20 h-20 logo-badge rounded-2xl mb-4">
-                <img src="{{ asset('images/logo13.png') }}" alt="Kultilas Logo" class="w-full h-full object-contain">
+                <img src="{{ asset('images/logo13.png') }}" alt="SMKN 13 Logo" class="w-full h-full object-contain">
             </div>
         </div>
         
@@ -364,12 +392,26 @@
         <div class="glass-card rounded-3xl p-8 md:p-10">
             <!-- Header -->
             <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent mb-3">
+                    Login Siswa
+                </h2>
                 <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">
                     Silakan masuk dengan NIS Anda untuk melanjutkan
                 </p>
             </div>
             
             <!-- Error Alert -->
+            @if($errors->any())
+                <div class="mb-6 alert-error">
+                    <div class="bg-red-50 dark:bg-red-900/30 border-l-4 border-red-500 text-red-700 dark:text-red-300 px-4 py-3 rounded-lg flex items-start">
+                        <svg class="w-5 h-5 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-sm">{{ $errors->first() }}</span>
+                    </div>
+                </div>
+            @endif
+            
             @if(session('error'))
                 <div class="mb-6 alert-error">
                     <div class="bg-red-50 dark:bg-red-900/30 border-l-4 border-red-500 text-red-700 dark:text-red-300 px-4 py-3 rounded-lg flex items-start">
@@ -377,6 +419,18 @@
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
                         </svg>
                         <span class="text-sm">{{ session('error') }}</span>
+                    </div>
+                </div>
+            @endif
+            
+            <!-- Session Status -->
+            @if(session('status'))
+                <div class="mb-6 alert-error">
+                    <div class="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-500 text-green-700 dark:text-green-300 px-4 py-3 rounded-lg flex items-start">
+                        <svg class="w-5 h-5 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-sm">{{ session('status') }}</span>
                     </div>
                 </div>
             @endif
@@ -401,7 +455,8 @@
                             id="nis" 
                             value="{{ old('nis') }}" 
                             required
-                            autocomplete="off"
+                            autofocus
+                            autocomplete="nis"
                             class="input-field pl-12 w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-0 focus:border-green-500 transition-all duration-300"
                             placeholder="Contoh: 2024001">
                     </div>
@@ -413,6 +468,19 @@
                             {{ $message }}
                         </p>
                     @enderror
+                </div>
+
+                <!-- Remember Me -->
+                <div class="flex items-center justify-between">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="remember">
+                        <div class="checkbox-box">
+                            <svg class="checkbox-icon" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <span class="checkbox-label">Ingat Saya</span>
+                    </label>
                 </div>
                 
                 <button 
@@ -533,13 +601,13 @@
     }, 5000);
     
     // Add focus animation to input
-    const inputField = document.getElementById('nis');
-    if (inputField) {
-        inputField.addEventListener('focus', function() {
+    const nisField = document.getElementById('nis');
+    if (nisField) {
+        nisField.addEventListener('focus', function() {
             this.parentElement.parentElement.style.transform = 'translateY(-2px)';
         });
         
-        inputField.addEventListener('blur', function() {
+        nisField.addEventListener('blur', function() {
             this.parentElement.parentElement.style.transform = 'translateY(0)';
         });
     }
@@ -567,4 +635,5 @@
         lastScroll = currentScroll;
     });
 </script>
-@endsection
+</body>
+</html>
