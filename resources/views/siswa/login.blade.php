@@ -163,6 +163,88 @@
         0%, 100% { text-shadow: 0 0 10px rgba(4, 120, 87, 0.5); }
         50% { text-shadow: 0 0 20px rgba(4, 120, 87, 0.8), 0 0 30px rgba(16, 185, 129, 0.4); }
     }
+    
+    /* Custom Checkbox Styling */
+    .custom-checkbox {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .custom-checkbox input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+    
+    .custom-checkbox .checkbox-box {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #d1d5db;
+        border-radius: 6px;
+        background: white;
+        transition: all 0.3s ease;
+        margin-right: 8px;
+    }
+    
+    .dark .custom-checkbox .checkbox-box {
+        background: #374151;
+        border-color: #4b5563;
+    }
+    
+    .custom-checkbox input[type="checkbox"]:checked + .checkbox-box {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        border-color: #059669;
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    }
+    
+    .custom-checkbox .checkbox-icon {
+        width: 14px;
+        height: 14px;
+        display: none;
+        color: white;
+    }
+    
+    .custom-checkbox input[type="checkbox"]:checked + .checkbox-box .checkbox-icon {
+        display: block;
+        animation: checkmark 0.3s ease;
+    }
+    
+    @keyframes checkmark {
+        0% {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
+    .custom-checkbox input[type="checkbox"]:focus + .checkbox-box {
+        outline: 2px solid #10b981;
+        outline-offset: 2px;
+    }
+    
+    .custom-checkbox .checkbox-label {
+        color: #4b5563;
+        font-weight: 500;
+        font-size: 0.875rem;
+        transition: color 0.2s ease;
+    }
+    
+    .dark .custom-checkbox .checkbox-label {
+        color: #d1d5db;
+    }
+    
+    .custom-checkbox input[type="checkbox"]:checked ~ .checkbox-label {
+        color: #047857;
+    }
 </style>
 
 <div class="full-bg"></div>
@@ -282,9 +364,6 @@
         <div class="glass-card rounded-3xl p-8 md:p-10">
             <!-- Header -->
             <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent mb-3">
-                    Portal Siswa
-                </h2>
                 <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">
                     Silakan masuk dengan NIS Anda untuk melanjutkan
                 </p>

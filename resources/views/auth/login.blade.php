@@ -1,21 +1,40 @@
-@extends('siswa.layout')
-@section('title', 'Login Admin')
-@section('content')
-<style>
-    .full-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 118, 110, 0.7) 100%), url('/images/smkn13.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        filter: blur(4px) brightness(0.95);
-        z-index: -1;
-        animation: backgroundShift 20s ease-in-out infinite;
-    }
+<!DOCTYPE html>
+<html lang="id" x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }" x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: transparent;
+        }
+        .full-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 118, 110, 0.7) 100%), url('/images/smkn13.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(4px) brightness(0.95);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
     
     @keyframes backgroundShift {
         0%, 100% { filter: blur(4px) brightness(0.95); }
@@ -163,6 +182,88 @@
         0%, 100% { text-shadow: 0 0 10px rgba(4, 120, 87, 0.5); }
         50% { text-shadow: 0 0 20px rgba(4, 120, 87, 0.8), 0 0 30px rgba(16, 185, 129, 0.4); }
     }
+    
+    /* Custom Checkbox Styling */
+    .custom-checkbox {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .custom-checkbox input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+    
+    .custom-checkbox .checkbox-box {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #d1d5db;
+        border-radius: 6px;
+        background: white;
+        transition: all 0.3s ease;
+        margin-right: 8px;
+    }
+    
+    .dark .custom-checkbox .checkbox-box {
+        background: #374151;
+        border-color: #4b5563;
+    }
+    
+    .custom-checkbox input[type="checkbox"]:checked + .checkbox-box {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        border-color: #059669;
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    }
+    
+    .custom-checkbox .checkbox-icon {
+        width: 14px;
+        height: 14px;
+        display: none;
+        color: white;
+    }
+    
+    .custom-checkbox input[type="checkbox"]:checked + .checkbox-box .checkbox-icon {
+        display: block;
+        animation: checkmark 0.3s ease;
+    }
+    
+    @keyframes checkmark {
+        0% {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
+    .custom-checkbox input[type="checkbox"]:focus + .checkbox-box {
+        outline: 2px solid #10b981;
+        outline-offset: 2px;
+    }
+    
+    .custom-checkbox .checkbox-label {
+        color: #4b5563;
+        font-weight: 500;
+        font-size: 0.875rem;
+        transition: color 0.2s ease;
+    }
+    
+    .dark .custom-checkbox .checkbox-label {
+        color: #d1d5db;
+    }
+    
+    .custom-checkbox input[type="checkbox"]:checked ~ .checkbox-label {
+        color: #047857;
+    }
 </style>
 
 <div class="full-bg"></div>
@@ -200,15 +301,7 @@
                             <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
                             </svg>
-                            Login Admin
-                        </span>
-                    </a>
-                    <a href="{{ route('siswa.login') }}" class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-lg transition-all duration-200">
-                        <span class="flex items-center">
-                            <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
-                            </svg>
-                            Login Siswa
+                            Login
                         </span>
                     </a>
                 </nav>
@@ -253,15 +346,7 @@
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
                         </svg>
-                        Login Admin
-                    </span>
-                </a>
-                <a href="{{ route('siswa.login') }}" class="block px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-lg transition-all duration-200">
-                    <span class="flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
-                        </svg>
-                        Login Siswa
+                        Login
                     </span>
                 </a>
             </div>
@@ -283,7 +368,7 @@
             <!-- Header -->
             <div class="text-center mb-8">
                 <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent mb-3">
-                    Portal Admin
+                    Login Admin
                 </h2>
                 <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">
                     Silakan masuk dengan username Anda untuk melanjutkan
@@ -357,9 +442,14 @@
 
                 <!-- Remember Me -->
                 <div class="flex items-center justify-between">
-                    <label for="remember_me" class="inline-flex items-center cursor-pointer">
-                        <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-green-700 shadow-sm focus:ring-green-600" name="remember">
-                        <span class="ms-2 text-sm text-gray-600 dark:text-gray-300 font-medium">Ingat Saya</span>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="remember">
+                        <div class="checkbox-box">
+                            <svg class="checkbox-icon" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <span class="checkbox-label">Ingat Saya</span>
                     </label>
                 </div>
                 
@@ -491,4 +581,5 @@
         lastScroll = currentScroll;
     });
 </script>
-@endsection
+</body>
+</html>
