@@ -205,85 +205,6 @@
             .gradient-text { font-size: 1.5rem; }
             .counter { font-size: 1.8rem; }
         }
-
-        /* Advanced Image Scroll Effects */
-        .image-scroll-effect {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        /* Image Zoom & Blur on Scroll */
-        @keyframes imageZoom {
-            0% {
-                transform: scale(1) translateZ(0);
-                filter: blur(0px) brightness(1);
-            }
-            100% {
-                transform: scale(1.1) translateZ(0);
-                filter: blur(6px) brightness(0.85);
-            }
-        }
-
-        /* Image Shift & Fade */
-        @keyframes imageShift {
-            0% {
-                transform: translateY(0px);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-40px);
-                opacity: 0.6;
-            }
-        }
-
-        /* Hero Background Smooth Transition */
-        .hero-bg-smooth {
-            transition: all 0.4s ease-out;
-        }
-
-        /* Light Mode Adjustments */
-        body:not(.dark) {
-            background-color: #f8f9fa;
-        }
-
-        body:not(.dark) .bg-gray-50 {
-            background-color: #f3f4f6;
-        }
-
-        body:not(.dark) .bg-white {
-            background-color: #fafbfc;
-        }
-
-        /* Adjusted Light Text Colors */
-        body:not(.dark) .text-gray-600 {
-            color: #4b5563;
-        }
-
-        body:not(.dark) .text-gray-700 {
-            color: #374151;
-        }
-
-        body:not(.dark) .text-gray-800 {
-            color: #1f2937;
-        }
-
-        /* Light Mode Navbar */
-        body:not(.dark) nav {
-            background-color: rgba(255, 255, 255, 0.98);
-            border-bottom-color: #e5e7eb;
-        }
-
-        /* Card Light Mode Adjustment */
-        body:not(.dark) .bg-white.rounded-2xl {
-            background: linear-gradient(135deg, #ffffff 0%, #f9fafc 100%);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Smooth Section Transitions */
-        section {
-            transition: all 0.3s ease;
-        }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
@@ -1008,50 +929,6 @@
             }
         });
 
-        // Advanced Parallax Effect with Image Zoom & Blur
-        let parallaxTicking = false;
-        window.addEventListener('scroll', () => {
-            if (!parallaxTicking) {
-                window.requestAnimationFrame(() => {
-                    const heroSection = document.querySelector('.hero-bg');
-                    const blurScroll = document.querySelector('.blur-scroll');
-                    
-                    if (heroSection) {
-                        const scrollPosition = window.scrollY;
-                        const heroHeight = heroSection.offsetHeight;
-                        
-                        // Calculate scroll percentage
-                        const scrollPercent = Math.min(scrollPosition / (heroHeight * 0.4), 1);
-                        
-                        // Parallax background movement
-                        heroSection.style.backgroundPosition = `center ${scrollPosition * 0.5}px`;
-                        
-                        // Progressive blur effect
-                        const blurAmount = scrollPercent * 12;
-                        heroSection.style.filter = `blur(${blurAmount}px)`;
-                        
-                        // Zoom effect
-                        const zoomAmount = 1 + (scrollPercent * 0.15);
-                        heroSection.style.transform = `scale(${zoomAmount})`;
-                        
-                        // Brightness reduction
-                        const brightness = Math.max(1 - (scrollPercent * 0.3), 0.7);
-                        heroSection.style.opacity = brightness;
-                        
-                        // Add active class for blur scroll
-                        if (scrollPercent > 0.2) {
-                            blurScroll?.classList.add('active');
-                        } else {
-                            blurScroll?.classList.remove('active');
-                        }
-                    }
-                    
-                    parallaxTicking = false;
-                });
-                parallaxTicking = true;
-            }
-        });
-
         // Counter Animation
         function animateCounter() {
             const counters = document.querySelectorAll('.counter');
@@ -1092,28 +969,14 @@
         // Call counter animation on page load
         window.addEventListener('load', animateCounter);
 
-        // Light Mode Color Adjustment
-        function adjustLightModeColors() {
-            const html = document.documentElement;
-            const isDark = html.classList.contains('dark');
-            
-            if (!isDark) {
-                // Light mode is active - apply light color adjustments
-                document.querySelectorAll('body:not(.dark) .bg-gray-50').forEach(el => {
-                    el.style.backgroundColor = '#f3f4f6';
-                });
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const heroSection = document.querySelector('.hero-bg');
+            if (heroSection) {
+                const scrollPosition = window.scrollY;
+                heroSection.style.backgroundPosition = `center ${scrollPosition * 0.5}px`;
             }
-        }
-
-        // Watch for dark mode changes
-        const observer = new MutationObserver(adjustLightModeColors);
-        observer.observe(document.documentElement, { 
-            attributes: true, 
-            attributeFilter: ['class'] 
         });
-        
-        // Initial adjustment
-        adjustLightModeColors();
     </script>
 </body>
 </html>
