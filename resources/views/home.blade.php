@@ -29,9 +29,6 @@
             filter: blur(0px);
             transition: filter 0.3s ease;
         }
-        .hero-bg.scroll-blur {
-            filter: blur(8px);
-        }
         .hero-bg::before {
             content: '';
             position: absolute;
@@ -51,16 +48,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.3) 100%);
             pointer-events: none;
-            animation: fadeInOut 4s ease infinite;
+            mix-blend-mode: overlay;
+            animation: overlayShift 4s ease-in-out infinite;
         }
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 0.8; }
+        @keyframes overlayShift {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
         }
         .dark .hero-bg {
-            background-image: linear-gradient(rgba(17, 24, 39, 0.9), rgba(31, 41, 55, 0.9)), url('/images/smkn13.jpg');
+            background-image: linear-gradient(rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.95)), url('/images/smkn13.jpg');
         }
         .card-hover:hover {
             transform: translateY(-8px);
@@ -152,111 +150,6 @@
             transform: translateY(0);
         }
 
-        /* Blur Scroll Effect */
-        .blur-scroll {
-            will-change: filter, transform;
-            transition: all 0.3s ease;
-        }
-        .blur-scroll.active {
-            filter: blur(12px);
-            transform: scale(1.05);
-            opacity: 0.7;
-        }
-
-        /* Zoom Fade Effect */
-        @keyframes zoomFade {
-            0% {
-                transform: scale(1) translateZ(0);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.1) translateZ(0);
-                opacity: 0.3;
-            }
-        }
-
-        /* Enhanced Hover Card */
-        .card-enhanced {
-            position: relative;
-            z-index: 1;
-        }
-        .card-enhanced::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
-            border-radius: 1rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-        .card-enhanced:hover::before {
-            opacity: 1;
-        }
-
-        /* Glow Border */
-        .glow-border {
-            border: 2px solid transparent;
-            background-clip: padding-box;
-            transition: all 0.3s ease;
-            box-shadow: inset 0 0 20px rgba(34, 197, 94, 0);
-        }
-        .glow-border:hover {
-            box-shadow: inset 0 0 20px rgba(34, 197, 94, 0.3), 0 0 30px rgba(34, 197, 94, 0.2);
-        }
-
-        /* Text Glow Effect */
-        .text-glow {
-            text-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
-            animation: textGlowPulse 2s ease-in-out infinite;
-        }
-        @keyframes textGlowPulse {
-            0%, 100% { text-shadow: 0 0 20px rgba(34, 197, 94, 0.5); }
-            50% { text-shadow: 0 0 40px rgba(34, 197, 94, 0.8); }
-        }
-
-        /* Neon Border */
-        .neon-border {
-            position: relative;
-            border: 2px solid #16a34a;
-            border-radius: 0.5rem;
-            box-shadow: 0 0 10px rgba(22, 163, 74, 0.5);
-            animation: neonFlicker 3s ease-in-out infinite;
-        }
-        @keyframes neonFlicker {
-            0%, 100% {
-                box-shadow: 0 0 10px rgba(22, 163, 74, 0.5), inset 0 0 10px rgba(22, 163, 74, 0.2);
-            }
-            50% {
-                box-shadow: 0 0 20px rgba(34, 197, 94, 0.8), inset 0 0 20px rgba(34, 197, 94, 0.4);
-            }
-        }
-
-        /* Hero Content Animation */
-        .hero-content {
-            animation: heroSlideUp 0.8s ease forwards;
-            opacity: 0;
-        }
-        @keyframes heroSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Stagger Animation */
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
-
         /* Gradient Text */
         .gradient-text {
             background: linear-gradient(135deg, #16a34a, #22c55e, #86efac);
@@ -313,88 +206,83 @@
             .counter { font-size: 1.8rem; }
         }
 
-        /* Advanced Card Glow Effect */
-        .card-glow {
+        /* Advanced Image Scroll Effects */
+        .image-scroll-effect {
             position: relative;
-            background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
-            border: 1px solid rgba(34, 197, 94, 0.2);
+            overflow: hidden;
             transition: all 0.3s ease;
         }
-        .card-glow::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.5), rgba(34, 197, 94, 0.1));
-            border-radius: 1rem;
-            opacity: 0;
-            z-index: -1;
-            transition: opacity 0.3s ease;
-            filter: blur(8px);
-        }
-        .card-glow:hover::before {
-            opacity: 1;
+
+        /* Image Zoom & Blur on Scroll */
+        @keyframes imageZoom {
+            0% {
+                transform: scale(1) translateZ(0);
+                filter: blur(0px) brightness(1);
+            }
+            100% {
+                transform: scale(1.1) translateZ(0);
+                filter: blur(6px) brightness(0.85);
+            }
         }
 
-        /* Smooth Card Lift Effect */
-        .card-lift {
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .card-lift:hover {
-            transform: translateY(-12px) scale(1.02);
-        }
-
-        /* Gradient Border Animation */
-        .gradient-border {
-            background: linear-gradient(white, white) padding-box,
-                        linear-gradient(135deg, #16a34a, #22c55e) border-box;
-            border: 2px solid transparent;
+        /* Image Shift & Fade */
+        @keyframes imageShift {
+            0% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-40px);
+                opacity: 0.6;
+            }
         }
 
-        /* Enhanced Text Shadow for Visibility */
-        .text-shadow-lg {
-            text-shadow: 
-                0 10px 20px rgba(0, 0, 0, 0.3),
-                0 0 40px rgba(34, 197, 94, 0.2);
+        /* Hero Background Smooth Transition */
+        .hero-bg-smooth {
+            transition: all 0.4s ease-out;
         }
 
-        /* Hover Glow Card */
-        .hover-glow {
-            position: relative;
+        /* Light Mode Adjustments */
+        body:not(.dark) {
+            background-color: #f8f9fa;
+        }
+
+        body:not(.dark) .bg-gray-50 {
+            background-color: #f3f4f6;
+        }
+
+        body:not(.dark) .bg-white {
+            background-color: #fafbfc;
+        }
+
+        /* Adjusted Light Text Colors */
+        body:not(.dark) .text-gray-600 {
+            color: #4b5563;
+        }
+
+        body:not(.dark) .text-gray-700 {
+            color: #374151;
+        }
+
+        body:not(.dark) .text-gray-800 {
+            color: #1f2937;
+        }
+
+        /* Light Mode Navbar */
+        body:not(.dark) nav {
+            background-color: rgba(255, 255, 255, 0.98);
+            border-bottom-color: #e5e7eb;
+        }
+
+        /* Card Light Mode Adjustment */
+        body:not(.dark) .bg-white.rounded-2xl {
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafc 100%);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Smooth Section Transitions */
+        section {
             transition: all 0.3s ease;
-        }
-        .hover-glow:hover {
-            box-shadow: 
-                0 0 20px rgba(34, 197, 94, 0.4),
-                0 0 40px rgba(34, 197, 94, 0.2);
-        }
-
-        /* Bounce Animation Enhanced */
-        @keyframes bounceEnhanced {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-            }
-            50% {
-                transform: translateY(-20px) scale(1.05);
-            }
-        }
-        .bounce-enhanced {
-            animation: bounceEnhanced 2s ease-in-out infinite;
-        }
-
-        /* Shimmer Overlay */
-        .shimmer-overlay::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmerMove 3s infinite;
-        }
-        @keyframes shimmerMove {
-            0% { left: -100%; }
-            100% { left: 100%; }
         }
     </style>
 </head>
@@ -461,32 +349,32 @@
     <div class="h-20"></div>
 
     <!-- Hero Section -->
-    <section class="hero-bg text-white py-20 relative blur-scroll">
+    <section class="hero-bg text-white py-20 relative">
         <div class="container mx-auto px-6 text-center relative z-10">
-            <div class="bg-black bg-opacity-30 backdrop-blur-sm rounded-2xl p-12 max-w-4xl mx-auto border border-white/10 shadow-2xl hover:border-white/20 transition-all duration-300 scroll-reveal hero-content">
-                <div class="mb-6 float-animation stagger-1">
-                    <svg class="w-16 h-16 mx-auto text-green-300 opacity-80 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="bg-black bg-opacity-30 backdrop-blur-sm rounded-2xl p-12 max-w-4xl mx-auto border border-white/10 shadow-2xl hover:border-white/20 transition-all duration-300 scroll-reveal">
+                <div class="mb-6 float-animation">
+                    <svg class="w-16 h-16 mx-auto text-green-300 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                 </div>
-                <h2 class="text-5xl md:text-6xl font-bold mb-4 gradient-text text-glow stagger-2">
+                <h2 class="text-5xl md:text-6xl font-bold mb-4 gradient-text">
                     <span id="typing-text"></span>
                     <span class="typing-cursor">|</span>
                 </h2>
-                <p class="text-2xl mb-2 font-semibold text-green-100 stagger-3">SMKN 13 Bandung</p>
-                <p class="text-xl mb-8 text-green-50 max-w-2xl mx-auto stagger-4">Platform Manajemen Ekstrakurikuler yang Modern, Interaktif, dan Efisien</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 stagger-4">
-                    <a href="#login" class="group relative bg-white text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg hover:shadow-2xl hover:scale-105 transform inline-block btn-ripple neon-border">
+                <p class="text-2xl mb-2 font-semibold text-green-100">SMKN 13 Bandung</p>
+                <p class="text-xl mb-8 text-green-50 max-w-2xl mx-auto">Platform Manajemen Ekstrakurikuler yang Modern, Interaktif, dan Efisien</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#login" class="group relative bg-white text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg hover:shadow-2xl hover:scale-105 transform inline-block btn-ripple">
                         <span class="relative z-10">🚀 Mulai Sekarang</span>
                     </a>
-                    <a href="#tentang" class="group border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-800 transition hover:shadow-xl hover:scale-105 transform inline-block relative overflow-hidden neon-border">
+                    <a href="#tentang" class="group border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-800 transition hover:shadow-xl hover:scale-105 transform inline-block relative overflow-hidden">
                         <div class="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition duration-300"></div>
                         <span class="relative z-10">📚 Pelajari Lebih Lanjut</span>
                     </a>
                 </div>
                 <!-- Scroll Indicator -->
                 <div class="mt-12 flex justify-center">
-                    <div class="animate-bounce pulse-ring">
+                    <div class="animate-bounce">
                         <svg class="w-6 h-6 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                         </svg>
@@ -513,10 +401,10 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
                 <!-- Admin Card -->
-                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center card-hover card-glow card-lift hover-glow transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-red-500/50 overflow-hidden scroll-reveal">
+                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center card-hover transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-red-500/50 overflow-hidden scroll-reveal">
                     <div class="absolute inset-0 bg-gradient-to-br from-red-50/0 to-red-100/0 dark:from-red-900/0 dark:to-red-900/0 group-hover:from-red-50/50 group-hover:to-red-100/30 dark:group-hover:from-red-900/20 dark:group-hover:to-red-900/10 transition-all duration-300"></div>
                     <div class="relative z-10">
-                        <div class="w-20 h-20 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-red-100 dark:ring-red-900 group-hover:ring-red-200 dark:group-hover:ring-red-800 transition-all duration-300 transform group-hover:scale-110 shimmer-overlay">
+                        <div class="w-20 h-20 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-red-100 dark:ring-red-900 group-hover:ring-red-200 dark:group-hover:ring-red-800 transition-all duration-300 transform group-hover:scale-110">
                             <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&crop=faces" 
                                  alt="Administrator" 
                                  class="w-full h-full object-cover"
@@ -532,10 +420,10 @@
                 </div>
 
                 <!-- Pembina Card -->
-                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center card-hover card-glow card-lift hover-glow transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-blue-500/50 overflow-hidden scroll-reveal">
+                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center card-hover transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-blue-500/50 overflow-hidden scroll-reveal">
                     <div class="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-100/0 dark:from-blue-900/0 dark:to-blue-900/0 group-hover:from-blue-50/50 group-hover:to-blue-100/30 dark:group-hover:from-blue-900/20 dark:group-hover:to-blue-900/10 transition-all duration-300"></div>
                     <div class="relative z-10">
-                        <div class="w-20 h-20 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-blue-100 dark:ring-blue-900 group-hover:ring-blue-200 dark:group-hover:ring-blue-800 transition-all duration-300 transform group-hover:scale-110 shimmer-overlay">
+                        <div class="w-20 h-20 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-blue-100 dark:ring-blue-900 group-hover:ring-blue-200 dark:group-hover:ring-blue-800 transition-all duration-300 transform group-hover:scale-110">
                             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=faces" 
                                  alt="Pembina" 
                                  class="w-full h-full object-cover"
@@ -551,10 +439,10 @@
                 </div>
 
                 <!-- Pelatih Card -->
-                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center card-hover card-glow card-lift hover-glow transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-green-500/50 overflow-hidden scroll-reveal">
+                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center card-hover transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-green-500/50 overflow-hidden scroll-reveal">
                     <div class="absolute inset-0 bg-gradient-to-br from-green-50/0 to-green-100/0 dark:from-green-900/0 dark:to-green-900/0 group-hover:from-green-50/50 group-hover:to-green-100/30 dark:group-hover:from-green-900/20 dark:group-hover:to-green-900/10 transition-all duration-300"></div>
                     <div class="relative z-10">
-                        <div class="w-20 h-20 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-green-100 dark:ring-green-900 group-hover:ring-green-200 dark:group-hover:ring-green-800 transition-all duration-300 transform group-hover:scale-110 shimmer-overlay">
+                        <div class="w-20 h-20 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-green-100 dark:ring-green-900 group-hover:ring-green-200 dark:group-hover:ring-green-800 transition-all duration-300 transform group-hover:scale-110">
                             <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=200&h=200&fit=crop&crop=faces" 
                                  alt="Pelatih" 
                                  class="w-full h-full object-cover"
@@ -570,10 +458,10 @@
                 </div>
 
                 <!-- Siswa Card -->
-                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center card-hover card-glow card-lift hover-glow transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-purple-500/50 overflow-hidden scroll-reveal">
+                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center card-hover transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-purple-500/50 overflow-hidden scroll-reveal">
                     <div class="absolute inset-0 bg-gradient-to-br from-purple-50/0 to-purple-100/0 dark:from-purple-900/0 dark:to-purple-900/0 group-hover:from-purple-50/50 group-hover:to-purple-100/30 dark:group-hover:from-purple-900/20 dark:group-hover:to-purple-900/10 transition-all duration-300"></div>
                     <div class="relative z-10">
-                        <div class="w-20 h-20 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-purple-100 dark:ring-purple-900 group-hover:ring-purple-200 dark:group-hover:ring-purple-800 transition-all duration-300 transform group-hover:scale-110 shimmer-overlay">
+                        <div class="w-20 h-20 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-purple-100 dark:ring-purple-900 group-hover:ring-purple-200 dark:group-hover:ring-purple-800 transition-all duration-300 transform group-hover:scale-110">
                             <img src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?w=200&h=200&fit=crop&crop=faces" 
                                  alt="Siswa" 
                                  class="w-full h-full object-cover"
@@ -1120,6 +1008,50 @@
             }
         });
 
+        // Advanced Parallax Effect with Image Zoom & Blur
+        let parallaxTicking = false;
+        window.addEventListener('scroll', () => {
+            if (!parallaxTicking) {
+                window.requestAnimationFrame(() => {
+                    const heroSection = document.querySelector('.hero-bg');
+                    const blurScroll = document.querySelector('.blur-scroll');
+                    
+                    if (heroSection) {
+                        const scrollPosition = window.scrollY;
+                        const heroHeight = heroSection.offsetHeight;
+                        
+                        // Calculate scroll percentage
+                        const scrollPercent = Math.min(scrollPosition / (heroHeight * 0.4), 1);
+                        
+                        // Parallax background movement
+                        heroSection.style.backgroundPosition = `center ${scrollPosition * 0.5}px`;
+                        
+                        // Progressive blur effect
+                        const blurAmount = scrollPercent * 12;
+                        heroSection.style.filter = `blur(${blurAmount}px)`;
+                        
+                        // Zoom effect
+                        const zoomAmount = 1 + (scrollPercent * 0.15);
+                        heroSection.style.transform = `scale(${zoomAmount})`;
+                        
+                        // Brightness reduction
+                        const brightness = Math.max(1 - (scrollPercent * 0.3), 0.7);
+                        heroSection.style.opacity = brightness;
+                        
+                        // Add active class for blur scroll
+                        if (scrollPercent > 0.2) {
+                            blurScroll?.classList.add('active');
+                        } else {
+                            blurScroll?.classList.remove('active');
+                        }
+                    }
+                    
+                    parallaxTicking = false;
+                });
+                parallaxTicking = true;
+            }
+        });
+
         // Counter Animation
         function animateCounter() {
             const counters = document.querySelectorAll('.counter');
@@ -1160,77 +1092,28 @@
         // Call counter animation on page load
         window.addEventListener('load', animateCounter);
 
-        // Add parallax effect to hero section with blur
-        window.addEventListener('scroll', () => {
-            const heroSection = document.querySelector('.hero-bg');
-            const blurScroll = document.querySelector('.blur-scroll');
+        // Light Mode Color Adjustment
+        function adjustLightModeColors() {
+            const html = document.documentElement;
+            const isDark = html.classList.contains('dark');
             
-            if (heroSection) {
-                const scrollPosition = window.scrollY;
-                
-                // Parallax background
-                heroSection.style.backgroundPosition = `center ${scrollPosition * 0.5}px`;
-                
-                // Blur effect when scrolling down
-                const heroHeight = heroSection.offsetHeight;
-                const scrollPercent = Math.min(scrollPosition / (heroHeight * 0.5), 1);
-                heroSection.style.filter = `blur(${scrollPercent * 8}px)`;
-                
-                // Add blur class based on scroll
-                if (scrollPercent > 0.2) {
-                    blurScroll?.classList.add('active');
-                } else {
-                    blurScroll?.classList.remove('active');
-                }
-            }
-
-            // Add additional scroll animations
-            const navbar = document.querySelector('nav');
-            if (window.scrollY > 10) {
-                navbar.classList.add('shadow-lg');
-            } else {
-                navbar.classList.remove('shadow-lg');
-            }
-
-            // Staggered animation on scroll
-            const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
-            scrollRevealElements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const elementHeight = element.offsetHeight;
-                
-                if (elementPosition < window.innerHeight - elementHeight / 2) {
-                    element.classList.add('active');
-                }
-            });
-        });
-
-        // Enhanced scroll event with more effects
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const scrollY = window.scrollY;
-                    
-                    // Hero content parallax
-                    const heroContent = document.querySelector('.hero-content');
-                    if (heroContent) {
-                        heroContent.style.transform = `translateY(${scrollY * 0.3}px)`;
-                        heroContent.style.opacity = Math.max(1 - scrollY / 500, 0.5);
-                    }
-                    
-                    ticking = false;
+            if (!isDark) {
+                // Light mode is active - apply light color adjustments
+                document.querySelectorAll('body:not(.dark) .bg-gray-50').forEach(el => {
+                    el.style.backgroundColor = '#f3f4f6';
                 });
-                ticking = true;
             }
-        });
+        }
 
-        // Add smooth backdrop blur transition
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('section');
-            sections.forEach((section, index) => {
-                section.style.setProperty('--animation-delay', `${index * 0.1}s`);
-            });
+        // Watch for dark mode changes
+        const observer = new MutationObserver(adjustLightModeColors);
+        observer.observe(document.documentElement, { 
+            attributes: true, 
+            attributeFilter: ['class'] 
         });
+        
+        // Initial adjustment
+        adjustLightModeColors();
     </script>
 </body>
 </html>
