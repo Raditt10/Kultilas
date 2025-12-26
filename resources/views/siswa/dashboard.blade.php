@@ -115,7 +115,7 @@
         <div class="lg:col-span-2 space-y-8">
             <!-- Pengumuman Eskul -->
             <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 transition-all duration-200 hover:shadow-2xl relative overflow-hidden">
-                <div class="absolute -top-10 -right-10 w-40 h-40 bg-green-100 dark:bg-green-900/20 rounded-full blur-3xl"></div>
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-green-100/60 dark:bg-green-500/10 rounded-full blur-3xl"></div>
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center">
                         <div class="bg-green-100 dark:bg-green-900 p-3 rounded-lg mr-4">
@@ -160,7 +160,7 @@
 
             <!-- Prestasi Terbaru -->
             <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 transition-all duration-200 hover:shadow-2xl relative overflow-hidden">
-                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-yellow-100 dark:bg-yellow-900/20 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-yellow-100/60 dark:bg-yellow-500/10 rounded-full blur-3xl"></div>
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center">
                         <div class="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-lg mr-4">
@@ -226,7 +226,7 @@
 
             <!-- Ekstrakurikuler Saya -->
             <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 transition-all duration-200 hover:shadow-2xl relative overflow-hidden">
-                <div class="absolute -top-10 -left-10 w-40 h-40 bg-emerald-100 dark:bg-emerald-900/20 rounded-full blur-3xl"></div>
+                <div class="absolute -top-10 -left-10 w-40 h-40 bg-emerald-100/60 dark:bg-emerald-500/10 rounded-full blur-3xl"></div>
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center">
                         <div class="bg-emerald-100 dark:bg-emerald-900 p-3 rounded-lg mr-4">
@@ -313,7 +313,7 @@
         <div class="space-y-8">
             <!-- Quick Actions / Menu Cepat -->
             <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 relative overflow-hidden">
-                <div class="absolute -top-10 -right-10 w-32 h-32 bg-green-100 dark:bg-green-900/20 rounded-full blur-3xl"></div>
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-green-100/60 dark:bg-green-500/10 rounded-full blur-3xl"></div>
                 <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-6">⚡ Menu Cepat</h2>
                 <div class="space-y-3">
                     <a href="{{ route('siswa.eskul') }}" class="flex items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors group">
@@ -356,7 +356,7 @@
 
             <!-- Tips & Motivasi -->
             <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 relative overflow-hidden">
-                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-indigo-100 dark:bg-indigo-900/20 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-indigo-100/60 dark:bg-indigo-500/10 rounded-full blur-3xl"></div>
                 <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-6">💡 Tips Hari Ini</h2>
                 <div class="space-y-4">
                     @php
@@ -410,7 +410,7 @@
 <div id="chatbot-panel" class="fixed bottom-24 right-6 z-40 w-80 max-w-full bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 hidden">
     <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-700">
         <div class="flex items-center space-x-3">
-            <div class="h-10 w-10 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center text-white font-bold">🤖</div>
+            <img src="{{ asset('images/robot.png') }}" alt="Chatbot" class="h-10 w-10 rounded-full object-cover">
             <div>
                 <p class="text-xs uppercase text-gray-500 dark:text-gray-400 tracking-[0.15em]">Panduan</p>
                 <h4 class="text-sm font-semibold text-gray-900 dark:text-white">Tutorial Aplikasi Permulaan</h4>
@@ -420,7 +420,7 @@
     </div>
     <div class="px-4 py-3 space-y-3 max-h-72 overflow-y-auto" id="chatbot-messages">
         <div class="flex space-x-2">
-            <div class="h-8 w-8 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center text-white text-sm">🤖</div>
+            <img src="{{ asset('images/robot.png') }}" alt="Chatbot" class="h-8 w-8 rounded-full object-cover">
             <div class="bg-emerald-50 dark:bg-emerald-900/30 text-sm text-gray-800 dark:text-gray-100 rounded-2xl px-3 py-2 max-w-[75%]">
                 Hai! Ini panduan cepat penggunaan aplikasi. Pilih salah satu topik di bawah.
             </div>
@@ -474,9 +474,10 @@
 
         const botRow = document.createElement('div');
         botRow.className = 'flex space-x-2 mt-2';
-        const botAvatar = document.createElement('div');
-        botAvatar.className = 'h-8 w-8 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center text-white text-sm';
-        botAvatar.textContent = '🤖';
+        const botAvatar = document.createElement('img');
+        botAvatar.src = '{{ asset('images/robot.png') }}';
+        botAvatar.alt = 'Chatbot';
+        botAvatar.className = 'h-8 w-8 rounded-full object-cover';
         const botBubble = document.createElement('div');
         botBubble.className = 'bg-emerald-50 dark:bg-emerald-900/30 text-sm text-gray-800 dark:text-gray-100 rounded-2xl px-3 py-2 max-w-[75%]';
         botBubble.textContent = answer;
@@ -515,6 +516,34 @@
     
     .animation-delay-4000 {
         animation-delay: 4s;
+    }
+
+    /* Chatbot scrollbar styling */
+    #chatbot-messages {
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: rgba(16, 185, 129, 0.6) transparent;
+    }
+    #chatbot-messages::-webkit-scrollbar {
+        width: 8px; /* WebKit */
+    }
+    #chatbot-messages::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 9999px;
+    }
+    #chatbot-messages::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #10b981, #14b8a6); /* emerald -> teal */
+        border-radius: 9999px;
+        border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+    #chatbot-messages::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to bottom, #34d399, #2dd4bf);
+    }
+    .dark #chatbot-messages {
+        scrollbar-color: rgba(16, 185, 129, 0.75) transparent;
+    }
+    .dark #chatbot-messages::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, rgba(16,185,129,0.8), rgba(20,184,166,0.8));
+        border: 2px solid rgba(31, 41, 55, 0.4); /* gray-800 border */
     }
 </style>
 @endsection
