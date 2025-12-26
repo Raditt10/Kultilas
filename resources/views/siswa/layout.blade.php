@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Portal Siswa')</title> <!-- Diubah menjadi Portal Siswa saja -->
+    <title>@yield('title', 'Dashboard')</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -27,7 +27,7 @@
     <!-- Sidebar -->
     <div id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-gradient-to-b from-green-700 to-green-900 dark:from-gray-800 dark:to-gray-950 shadow-2xl transform -translate-x-full transition-all duration-300 ease-in-out z-50">
         <div class="flex items-center justify-between p-6 border-b border-green-600">
-            <h2 class="text-white text-lg font-bold">Portal Siswa</h2>
+            <h2 class="text-white text-lg font-bold">Dashboard</h2>
             <button onclick="toggleSidebar()" class="text-white hover:text-green-200 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -106,13 +106,11 @@
 
             @if(!request()->routeIs('siswa.login') && !request()->routeIs('siswa.register'))
             <div class="flex items-center">
-                <svg class="w-8 h-8 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                </svg>
+                <img src="{{ asset('images/logo13.png') }}" alt="Kultilas Logo" class="w-8 h-8 mr-3" />
                 <div>
                     <h1 class="text-xl font-bold text-white">
                         @if(request()->routeIs('siswa.dashboard'))
-                            Portal Siswa - Kultilas
+                            Dashboard Siswa
                         @elseif(request()->routeIs('siswa.eskul'))
                             Daftar Eskul
                         @elseif(request()->routeIs('siswa.presensi'))
@@ -122,7 +120,7 @@
                         @elseif(request()->routeIs('siswa.profile'))
                             Profil Saya
                         @else
-                            Portal Siswa
+                            Dashboard
                         @endif
                     </h1>
                     <p class="text-green-200 dark:text-gray-300 text-xs">SMKN 13 Bandung - Sistem Ekstrakurikuler</p>
@@ -171,7 +169,7 @@
                         <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
                             <p class="text-sm font-semibold text-gray-900 dark:text-white">{{ session('siswa_name') ?? 'Siswa' }}</p>
                             <span class="inline-block mt-2 px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                                Portal Siswa
+                                Dashboard
                             </span>
                         </div>
 
