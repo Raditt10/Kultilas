@@ -272,7 +272,7 @@
     <!-- Hero Section -->
     <section class="hero-bg text-white py-20 relative">
         <div class="container mx-auto px-6 text-center relative z-10">
-            <div class="bg-black bg-opacity-30 backdrop-blur-sm rounded-2xl p-12 max-w-4xl mx-auto border border-white/10 shadow-2xl hover:border-white/20 transition-all duration-300 scroll-reveal">
+            <div class="bg-black bg-opacity-30 backdrop-blur-sm rounded-2xl p-12 max-w-5xl w-full mx-auto border border-white/10 shadow-2xl hover:border-white/20 transition-all duration-300 scroll-reveal">
                 <div class="mb-6 float-animation">
                     <svg class="w-16 h-16 mx-auto text-green-300 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
@@ -286,11 +286,11 @@
                 <p class="text-xl mb-8 text-green-50 max-w-2xl mx-auto">Platform Manajemen Ekstrakurikuler yang Modern, Interaktif, dan Efisien</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="#login" class="group relative bg-white text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg hover:shadow-2xl hover:scale-105 transform inline-block btn-ripple">
-                        <span class="relative z-10">🚀 Mulai Sekarang</span>
+                        <span class="relative z-10"> Mulai Sekarang</span>
                     </a>
                     <a href="#tentang" class="group border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-800 transition hover:shadow-xl hover:scale-105 transform inline-block relative overflow-hidden">
                         <div class="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition duration-300"></div>
-                        <span class="relative z-10">📚 Pelajari Lebih Lanjut</span>
+                        <span class="relative z-10"> Pelajari Lebih Lanjut</span>
                     </a>
                 </div>
                 <!-- Scroll Indicator -->
