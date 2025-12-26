@@ -110,8 +110,14 @@
                             <tr class="hover:bg-green-50 dark:hover:bg-gray-700 transition-all duration-200">
                                 <td class="px-8 py-6 whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <div class="bg-gradient-to-br from-green-400 to-green-600 p-3 rounded-full mr-4 shadow-lg">
-                                            <span class="text-sm font-bold text-white">{{ substr($s->nama_siswa, 0, 1) }}</span>
+                                        <div class="relative w-12 h-12 mr-4">
+                                            @if(!empty($s->foto_profil))
+                                                <img src="{{ asset('images/profile/' . $s->foto_profil) }}" alt="Foto {{ $s->nama_siswa }}" class="w-12 h-12 rounded-full object-cover border-2 border-green-200 shadow-lg">
+                                            @else
+                                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-lg">
+                                                    <span class="text-sm font-bold text-white">{{ substr($s->nama_siswa, 0, 1) }}</span>
+                                                </div>
+                                            @endif
                                         </div>
                                         <div>
                                             <div class="text-sm font-semibold text-gray-900 dark:text-white">

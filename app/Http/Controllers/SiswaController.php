@@ -11,6 +11,16 @@ use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
+    private function syncSiswaSession(Siswa $siswa): void
+    {
+        session([
+            'siswa_id' => $siswa->id_siswa,
+            'siswa_name' => $siswa->nama_siswa,
+            'siswa_email' => $siswa->email,
+            'siswa_foto' => $siswa->foto_profil,
+        ]);
+    }
+
     public function index()
     {
         return view('siswa.index');
@@ -56,7 +66,7 @@ class SiswaController extends Controller
             return back()->withErrors(['nis' => 'NIS tidak ditemukan'])->withInput();
         }
 
-        session(['siswa_id' => $siswa->id_siswa, 'siswa_name' => $siswa->nama_siswa]);
+        $this->syncSiswaSession($siswa);
 
         return redirect()->route('siswa.dashboard');
     }
@@ -68,6 +78,7 @@ class SiswaController extends Controller
         }
 
         $siswa = Siswa::findOrFail(session('siswa_id'));
+        $this->syncSiswaSession($siswa);
         $pendaftaran = PendaftaranEskul::where('id_siswa', $siswa->id_siswa)
             ->with('eskul')
             ->get();
@@ -82,6 +93,7 @@ class SiswaController extends Controller
         }
 
         $siswa = Siswa::findOrFail(session('siswa_id'));
+        $this->syncSiswaSession($siswa);
         $eskul = Eskul::all();
         $pendaftaran = PendaftaranEskul::where('id_siswa', $siswa->id_siswa)
             ->pluck('id_eskul')
@@ -127,6 +139,7 @@ class SiswaController extends Controller
             ->with('eskul')
             ->orderBy('tanggal', 'desc')
             ->paginate(15);
+        $this->syncSiswaSession(Siswa::findOrFail($siswa_id));
 
         return view('siswa.presensi', compact('presensi'));
     }
@@ -141,6 +154,7 @@ class SiswaController extends Controller
         $prestasi = Prestasi::whereHas('pendaftaran', function($q) use ($siswa_id) {
             $q->where('id_siswa', $siswa_id);
         })->with(['pendaftaran.eskul'])->get();
+        $this->syncSiswaSession(Siswa::findOrFail($siswa_id));
 
         return view('siswa.prestasi', compact('prestasi'));
     }
@@ -152,6 +166,7 @@ class SiswaController extends Controller
         }
 
         $siswa = Siswa::findOrFail(session('siswa_id'));
+        $this->syncSiswaSession($siswa);
         return view('siswa.profile', compact('siswa'));
     }
 
@@ -169,16 +184,48 @@ class SiswaController extends Controller
             'alamat' => 'nullable|string',
             'no_telp' => 'nullable|string|max:15',
             'email' => 'nullable|email|max:100',
+            'foto_profil' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $siswa->update($request->only(['nama_siswa', 'kelas', 'alamat', 'no_telp', 'email']));
+        $data = $request->only(['nama_siswa', 'kelas', 'alamat', 'no_telp', 'email']);
+
+        // Handle foto profil upload
+        $newPhoto = null;
+
+        if ($request->hasFile('foto_profil')) {
+            $dir = public_path('images/profile');
+            if (!is_dir($dir)) {
+                mkdir($dir, 0755, true);
+            }
+
+            if ($siswa->foto_profil && file_exists($dir . '/' . $siswa->foto_profil)) {
+                @unlink($dir . '/' . $siswa->foto_profil);
+            }
+
+            $file = $request->file('foto_profil');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move($dir, $filename);
+            $data['foto_profil'] = $filename;
+            $newPhoto = $filename;
+        }
+
+        $siswa->update($data);
+
+        // Ensure we have the latest model values
+        $siswa->refresh();
+        if ($newPhoto) {
+            $siswa->foto_profil = $newPhoto;
+        }
+
+        // Refresh session data for header display
+        $this->syncSiswaSession($siswa);
 
         return back()->with('success', 'Profil berhasil diupdate!');
     }
 
     public function logout()
     {
-        session()->forget(['siswa_id', 'siswa_name']);
+        session()->forget(['siswa_id', 'siswa_name', 'siswa_email', 'siswa_foto']);
         return redirect()->route('siswa.login')->with('success', 'Berhasil logout!');
     }
 }

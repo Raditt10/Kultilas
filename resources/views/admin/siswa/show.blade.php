@@ -43,10 +43,14 @@
                 <div class="lg:col-span-1">
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-green-100 dark:border-gray-700 p-6">
                         <div class="text-center">
-                            <div class="mx-auto h-32 w-32 rounded-full bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center mb-4">
-                                <span class="text-4xl font-bold text-white">
-                                    {{ substr($siswa->nama_siswa, 0, 1) }}
-                                </span>
+                            <div class="mx-auto h-32 w-32 rounded-full bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center mb-4 overflow-hidden ring-2 ring-green-200">
+                                @if($siswa->foto_profil)
+                                    <img src="{{ asset('images/profile/' . $siswa->foto_profil) }}" alt="Foto {{ $siswa->nama_siswa }}" class="h-full w-full object-cover">
+                                @else
+                                    <span class="text-4xl font-bold text-white">
+                                        {{ substr($siswa->nama_siswa, 0, 1) }}
+                                    </span>
+                                @endif
                             </div>
                             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">{{ $siswa->nama_siswa }}</h2>
                             <p class="text-green-600 font-semibold">NIS: {{ $siswa->nis }}</p>
