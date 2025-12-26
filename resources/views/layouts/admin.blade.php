@@ -371,7 +371,10 @@
     <!-- Main Content -->
     <div id="mainWrapper" class="transition-all duration-300 lg:ml-64">
         <!-- Top Bar -->
-        <div class="bg-gradient-to-r from-green-700 to-green-900 dark:from-gray-800 dark:to-gray-900 shadow-lg sticky top-0 z-30 transition-colors duration-200">
+        <div class="bg-gradient-to-r from-green-700 to-green-900 dark:from-gray-800 dark:to-gray-900 shadow-xl ring-1 ring-white/10 relative overflow-visible sticky top-0 z-30 transition-colors duration-200">
+            <!-- Decorative overlay -->
+            <div class="absolute inset-0 opacity-[0.06] bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-white via-transparent to-transparent pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-400/60 via-green-500/60 to-teal-400/60"></div>
             <div class="flex items-center justify-between px-6 py-4">
                 <button onclick="toggleSidebar()" class="text-white hover:text-green-200 dark:hover:text-gray-300 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -383,7 +386,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                     </svg>
                     <div>
-                        <h1 class="text-xl font-bold text-white">@yield('page-title', 'Admin Panel')</h1>
+                        <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white">@yield('page-title', 'Admin Panel')</h1>
                         <p class="text-green-200 dark:text-gray-300 text-xs">SMKN 13 Bandung - Sistem Ekstrakurikuler</p>
                     </div>
                 </div>
