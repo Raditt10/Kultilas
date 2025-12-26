@@ -3,8 +3,9 @@
 @section('title', 'Dashboard Siswa')
 
 @section('content')
+<div class="space-y-8">
 <!-- Welcome Header -->
-<div class="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl shadow-xl p-8 mb-8 text-white relative overflow-hidden">
+<div class="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl shadow-xl p-8 text-white relative overflow-hidden">
     <div class="relative z-10">
         <h1 class="text-3xl font-bold mb-2">Selamat Datang, {{ $siswa->nama_siswa }}! 🎉</h1>
         <p class="text-green-100 text-lg">Kelas {{ $siswa->kelas ?? 'XI' }} • NIS: {{ $siswa->nis }}</p>
@@ -23,13 +24,11 @@
             </div>
         </div>
     </div>
-    <!-- Background decoration -->
-    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-white/10 rounded-full"></div>
-    <div class="absolute bottom-0 left-0 -mb-8 -ml-8 w-24 h-24 bg-white/5 rounded-full"></div>
+    <!-- Background decoration removed for cleaner header -->
 </div>
 
 <!-- Statistics Cards -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-green-500">
         <div class="flex items-center justify-between">
             <div>
@@ -77,7 +76,7 @@
 </div>
 
 <!-- Main Dashboard Grid -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
     <!-- Left Column -->
     <div class="lg:col-span-2 space-y-8">
         <!-- Pengumuman Eskul -->
@@ -458,5 +457,6 @@
             </div>
         </div>
     @endif
+</div>
 </div>
 @endsection

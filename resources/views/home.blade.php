@@ -227,11 +227,11 @@
                     <a href="#login" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white font-medium rounded-full transition-all duration-300 hover:shadow-md hover:scale-105 transform">
                         Portal
                     </a>
-                    <a href="#tentang" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white font-medium rounded-full transition-all duration-300 hover:shadow-md hover:scale-105 transform">
-                        Ekstrakurikuler
-                    </a>
                     <a href="#fitur" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white font-medium rounded-full transition-all duration-300 hover:shadow-md hover:scale-105 transform">
                         Fitur
+                    </a>
+                    <a href="#tentang" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white font-medium rounded-full transition-all duration-300 hover:shadow-md hover:scale-105 transform">
+                        Ekstrakurikuler
                     </a>
                     <a href="#kontak" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white font-medium rounded-full transition-all duration-300 hover:shadow-md hover:scale-105 transform">
                         Kontak
