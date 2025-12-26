@@ -92,23 +92,25 @@
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="toggleSidebar()"></div>
 
     <!-- Top Bar (Admin-like) -->
-    <div class="bg-gradient-to-r from-green-700 to-green-900 dark:from-gray-800 dark:to-gray-900 shadow-lg sticky top-0 z-30 transition-colors duration-200">
+    <div class="bg-gradient-to-r from-green-700 to-green-900 dark:from-gray-800 dark:to-gray-900 shadow-xl ring-1 ring-white/10 relative overflow-visible sticky top-0 z-30 transition-colors duration-200">
+        <!-- Decorative overlay -->
+        <div class="absolute inset-0 opacity-[0.06] bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-white via-transparent to-transparent pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-400/60 via-green-500/60 to-teal-400/60"></div>
         <div class="flex items-center justify-between px-6 py-4">
-            @if(session('siswa_id'))
-            <button onclick="toggleSidebar()" class="text-white hover:text-green-200 dark:hover:text-gray-300 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-            @else
-            <div></div>
-            @endif
-
-            @if(!request()->routeIs('siswa.login') && !request()->routeIs('siswa.register'))
             <div class="flex items-center">
-                <img src="{{ asset('images/logo13.png') }}" alt="Kultilas Logo" class="w-8 h-8 mr-3" />
+                @if(session('siswa_id'))
+                <button onclick="toggleSidebar()" class="text-white hover:text-green-200 dark:hover:text-gray-300 focus:outline-none mr-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                @endif
+
+                <img src="{{ asset('images/logo13.png') }}" alt="Kultilas Logo" class="w-8 h-8 mr-3 p-1 bg-white/10 rounded-lg ring-1 ring-white/20" />
+
+                @if(!request()->routeIs('siswa.login') && !request()->routeIs('siswa.register'))
                 <div>
-                    <h1 class="text-xl font-bold text-white">
+                    <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white">
                         @if(request()->routeIs('siswa.dashboard'))
                             Dashboard Siswa
                         @elseif(request()->routeIs('siswa.eskul'))
@@ -123,10 +125,10 @@
                             Dashboard
                         @endif
                     </h1>
-                    <p class="text-green-200 dark:text-gray-300 text-xs">SMKN 13 Bandung - Sistem Ekstrakurikuler</p>
+                    <p class="text-green-100 dark:text-gray-300 text-xs font-medium">SMKN 13 Bandung - Sistem Ekstrakurikuler</p>
                 </div>
+                @endif
             </div>
-            @endif
 
             <div class="profile-menu hidden md:flex items-center space-x-4">
                 <!-- Dark Mode Toggle -->
