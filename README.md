@@ -317,7 +317,7 @@ Untuk bantuan lebih lanjut, silakan hubungi:
 
 ## 🤝 Kontributor
 
-Dikembangkan oleh Tim Pengembang Rafaditya S untuk SMKN 13 Bandung.
+Dikembangkan oleh Xealuyaa
 
 ## 📝 Code of Conduct
 
