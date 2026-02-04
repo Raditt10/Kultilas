@@ -309,15 +309,9 @@ npm run build
 php artisan optimize:clear
 ```
 
-## 📞 Support
-
-Untuk bantuan lebih lanjut, silakan hubungi:
-- Email: iniakuraditt@gmail.com
-- Telp: (021) 1234-5678
-
 ## 🤝 Kontributor
 
-Dikembangkan oleh Xealuyaa
+Dikembangkan oleh Raditt10
 
 ## 📝 Code of Conduct
 
