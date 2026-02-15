@@ -323,4 +323,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## 📄 License
 
-*Hak cipta sepenuhnya milik pengembang Kanjirouu.*
+*Hak cipta sepenuhnya milik pengembang Raditt10.*
