@@ -324,4 +324,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## 📄 License
 
-*Hak cipta sepenuhnya milik pengembang Raditt10.*
+_© 2025 Kultilas - Hak cipta milik pengembang [Raditt10](https://github.com/Raditt10)._
