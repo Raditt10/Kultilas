@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }" x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))" :class="{ 'dark': darkMode }">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -546,29 +546,22 @@
     const themeToggleBtn = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const themeStorageKey = 'theme:siswa-login';
 
-    // Check for saved theme preference or default to light mode
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-        themeToggleLightIcon.classList.remove('hidden');
-    } else {
-        document.documentElement.classList.remove('dark');
-        themeToggleDarkIcon.classList.remove('hidden');
+    function applyTheme(theme) {
+        const isDark = theme === 'dark';
+        document.documentElement.classList.toggle('dark', isDark);
+        themeToggleLightIcon.classList.toggle('hidden', !isDark);
+        themeToggleDarkIcon.classList.toggle('hidden', isDark);
     }
 
-    themeToggleBtn.addEventListener('click', function() {
-        // Toggle icons
-        themeToggleDarkIcon.classList.toggle('hidden');
-        themeToggleLightIcon.classList.toggle('hidden');
+    // Default selalu light untuk halaman ini (tidak ikut halaman lain)
+    applyTheme(localStorage.getItem(themeStorageKey) === 'dark' ? 'dark' : 'light');
 
-        // Toggle dark mode
-        if (document.documentElement.classList.contains('dark')) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('color-theme', 'light');
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('color-theme', 'dark');
-        }
+    themeToggleBtn.addEventListener('click', function() {
+        const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+        localStorage.setItem(themeStorageKey, nextTheme);
+        applyTheme(nextTheme);
     });
     
     // Mobile menu toggle

@@ -399,7 +399,6 @@
 </div>
 </div>
 
-<!-- Floating Tutorial (single instance) -->
 <button type="button" onclick="toggleChatbot()" aria-label="Tutorial Aplikasi Permulaan"
     class="fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 shadow-xl shadow-emerald-500/30 border-2 border-white flex items-center justify-center hover:scale-105 transition">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
