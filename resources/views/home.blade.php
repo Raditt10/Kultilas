@@ -205,9 +205,72 @@
             .gradient-text { font-size: 1.5rem; }
             .counter { font-size: 1.8rem; }
         }
+
+        /* ===== PASTEL LIGHT MODE PALETTE ===== */
+        html:not(.dark) body {
+            background-color: #EEE9E1 !important;
+        }
+
+        /* Navbar */
+        html:not(.dark) nav.bg-white\/95 {
+            background-color: rgba(253, 250, 246, 0.97) !important;
+            border-bottom-color: #DDD8CF !important;
+        }
+
+        /* Nav pill background */
+        html:not(.dark) .bg-gray-100\/80 {
+            background-color: rgba(237, 232, 224, 0.85) !important;
+        }
+
+        /* Nav dark mode toggle button bg */
+        html:not(.dark) .bg-gray-100 {
+            background-color: #EDE8E0 !important;
+        }
+
+        /* ── Section backgrounds: target by ID to bypass Tailwind CSS-var gradients ── */
+        html:not(.dark) section#login {
+            background: linear-gradient(to bottom, #F5F1EB, #FDFAF6) !important;
+        }
+
+        html:not(.dark) section#fitur {
+            background: linear-gradient(to bottom, #FDFAF6, #F5F1EB) !important;
+        }
+
+        /* Tentang/Ekstrakurikuler section — same warm cream as #fitur */
+        html:not(.dark) section#tentang {
+            background: linear-gradient(to bottom, #F5F1EB, #FDFAF6) !important;
+        }
+
+        /* White cards → warm cream */
+        html:not(.dark) .bg-white {
+            background-color: #FDFAF6 !important;
+        }
+
+        html:not(.dark) .bg-gray-50 {
+            background-color: #F5F1EB !important;
+        }
+
+        /* Card borders */
+        html:not(.dark) .border-gray-100 {
+            border-color: #DDD8CF !important;
+        }
+        html:not(.dark) .border-gray-200 {
+            border-color: #D4CFC7 !important;
+        }
+
+        /* Green-100 pastel badge backgrounds — keep colorful, just slightly warmer */
+        html:not(.dark) .bg-green-100 { background-color: #D9F3E5 !important; }
+        html:not(.dark) .bg-blue-100  { background-color: #DAEEFF !important; }
+        html:not(.dark) .bg-purple-100{ background-color: #EDE0FF !important; }
+        html:not(.dark) .bg-red-100   { background-color: #FFDEDC !important; }
+
+        /* Card inner border on eskul flip cards */
+        html:not(.dark) .border-gray-100.dark\:border-gray-700 {
+            border-color: #DDD8CF !important;
+        }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <!-- Navbar -->
     <nav class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-md fixed w-full top-0 z-50 border-b border-gray-200 dark:border-gray-800 transition-colors duration-200">
         <div class="container mx-auto px-6 py-3">
@@ -224,8 +287,8 @@
                 </div>
 
                 <div class="hidden md:flex gap-2 items-center bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-2 rounded-full shadow-inner">
-                    <a href="#login" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white font-medium rounded-full transition-all duration-300 hover:shadow-md hover:scale-105 transform">
-                        Portal
+                    <a href="{{ route('login') }}" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white font-medium rounded-full transition-all duration-300 hover:shadow-md hover:scale-105 transform">
+                        Login
                     </a>
                     <a href="#fitur" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white font-medium rounded-full transition-all duration-300 hover:shadow-md hover:scale-105 transform">
                         Fitur
@@ -251,7 +314,7 @@
                     </button>
 
                     <!-- CTA Button -->
-                    <a href="#login" class="px-6 py-2.5 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                    <a href="{{ route('login') }}" class="px-6 py-2.5 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                         Masuk
                     </a>
                 </div>
@@ -285,7 +348,7 @@
                 <p class="text-2xl mb-2 font-semibold text-green-100">SMKN 13 Bandung</p>
                 <p class="text-xl mb-8 text-green-50 max-w-2xl mx-auto">Platform Manajemen Ekstrakurikuler yang Modern, Interaktif, dan Efisien</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#login" class="group relative bg-white text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg hover:shadow-2xl hover:scale-105 transform inline-block btn-ripple">
+                    <a href="{{ route('login') }}" class="group relative bg-white text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg hover:shadow-2xl hover:scale-105 transform inline-block btn-ripple">
                         <span class="relative z-10"> Mulai Sekarang</span>
                     </a>
                     <a href="#tentang" class="group border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-800 transition hover:shadow-xl hover:scale-105 transform inline-block relative overflow-hidden">
@@ -305,103 +368,7 @@
         </div>
     </section>
 
-    <!-- Login Section -->
-    <section id="login" class="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-200 relative overflow-hidden">
-        <!-- Background Animation -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-green-100 dark:bg-green-900/20 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-            <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 scroll-reveal">
-                <h3 class="text-4xl md:text-5xl font-bold text-green-800 dark:text-green-400 mb-4 gradient-text">Portal Login</h3>
-                <p class="text-gray-600 dark:text-gray-400 mb-2">Pilih portal sesuai dengan peran Anda</p>
-                <div class="w-24 h-1 bg-gradient-to-r from-green-600 to-green-400 mx-auto rounded-full"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                <!-- Admin Card -->
-                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center card-hover transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-red-500/50 overflow-hidden scroll-reveal">
-                    <div class="absolute inset-0 bg-gradient-to-br from-red-50/0 to-red-100/0 dark:from-red-900/0 dark:to-red-900/0 group-hover:from-red-50/50 group-hover:to-red-100/30 dark:group-hover:from-red-900/20 dark:group-hover:to-red-900/10 transition-all duration-300"></div>
-                    <div class="relative z-10">
-                        <div class="w-20 h-20 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-red-100 dark:ring-red-900 group-hover:ring-red-200 dark:group-hover:ring-red-800 transition-all duration-300 transform group-hover:scale-110">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&crop=faces" 
-                                 alt="Administrator" 
-                                 class="w-full h-full object-cover"
-                                 onerror="this.src='https://ui-avatars.com/api/?name=Admin&size=200&background=DC2626&color=fff&bold=true'">
-                        </div>
-                        <h4 class="text-2xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">Administrator</h4>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm leading-relaxed">Kelola seluruh sistem dan data ekstrakurikuler dengan mudah</p>
-                        <a href="{{ route('login') }}" class="block w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition transform hover:scale-105 relative overflow-hidden group/btn">
-                            <span class="relative z-10">Login Admin</span>
-                            <div class="absolute inset-0 bg-red-700 scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left"></div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Pembina Card -->
-                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center card-hover transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-blue-500/50 overflow-hidden scroll-reveal">
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-100/0 dark:from-blue-900/0 dark:to-blue-900/0 group-hover:from-blue-50/50 group-hover:to-blue-100/30 dark:group-hover:from-blue-900/20 dark:group-hover:to-blue-900/10 transition-all duration-300"></div>
-                    <div class="relative z-10">
-                        <div class="w-20 h-20 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-blue-100 dark:ring-blue-900 group-hover:ring-blue-200 dark:group-hover:ring-blue-800 transition-all duration-300 transform group-hover:scale-110">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=faces" 
-                                 alt="Pembina" 
-                                 class="w-full h-full object-cover"
-                                 onerror="this.src='https://ui-avatars.com/api/?name=Pembina&size=200&background=2563EB&color=fff&bold=true'">
-                        </div>
-                        <h4 class="text-2xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Pembina</h4>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm leading-relaxed">Kelola eskul yang Anda bina dan pantau perkembangan siswa</p>
-                        <a href="{{ route('login') }}" class="block w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition transform hover:scale-105 relative overflow-hidden group/btn">
-                            <span class="relative z-10">Login Pembina</span>
-                            <div class="absolute inset-0 bg-blue-700 scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left"></div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Pelatih Card -->
-                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center card-hover transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-green-500/50 overflow-hidden scroll-reveal">
-                    <div class="absolute inset-0 bg-gradient-to-br from-green-50/0 to-green-100/0 dark:from-green-900/0 dark:to-green-900/0 group-hover:from-green-50/50 group-hover:to-green-100/30 dark:group-hover:from-green-900/20 dark:group-hover:to-green-900/10 transition-all duration-300"></div>
-                    <div class="relative z-10">
-                        <div class="w-20 h-20 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-green-100 dark:ring-green-900 group-hover:ring-green-200 dark:group-hover:ring-green-800 transition-all duration-300 transform group-hover:scale-110">
-                            <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=200&h=200&fit=crop&crop=faces" 
-                                 alt="Pelatih" 
-                                 class="w-full h-full object-cover"
-                                 onerror="this.src='https://ui-avatars.com/api/?name=Pelatih&size=200&background=16A34A&color=fff&bold=true'">
-                        </div>
-                        <h4 class="text-2xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">Pelatih</h4>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm leading-relaxed">Kelola program latihan dan evaluasi performa siswa</p>
-                        <a href="{{ route('login') }}" class="block w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition transform hover:scale-105 relative overflow-hidden group/btn">
-                            <span class="relative z-10">Login Pelatih</span>
-                            <div class="absolute inset-0 bg-green-700 scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left"></div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Siswa Card -->
-                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center card-hover transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-purple-500/50 overflow-hidden scroll-reveal">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-50/0 to-purple-100/0 dark:from-purple-900/0 dark:to-purple-900/0 group-hover:from-purple-50/50 group-hover:to-purple-100/30 dark:group-hover:from-purple-900/20 dark:group-hover:to-purple-900/10 transition-all duration-300"></div>
-                    <div class="relative z-10">
-                        <div class="w-20 h-20 mx-auto mb-4 overflow-hidden rounded-full ring-4 ring-purple-100 dark:ring-purple-900 group-hover:ring-purple-200 dark:group-hover:ring-purple-800 transition-all duration-300 transform group-hover:scale-110">
-                            <img src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?w=200&h=200&fit=crop&crop=faces" 
-                                 alt="Siswa" 
-                                 class="w-full h-full object-cover"
-                                 onerror="this.src='https://ui-avatars.com/api/?name=Siswa&size=200&background=9333EA&color=fff&bold=true'">
-                        </div>
-                        <h4 class="text-2xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">Siswa</h4>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm leading-relaxed">Daftar dan kelola ekstrakurikuler yang Anda ikuti</p>
-                        <a href="{{ route('siswa.login') }}" class="block w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition transform hover:scale-105 relative overflow-hidden group/btn mb-3">
-                            <span class="relative z-10">Login Siswa</span>
-                            <div class="absolute inset-0 bg-purple-700 scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left"></div>
-                        </a>
-                        <a href="{{ route('siswa.register') }}" class="block w-full border-2 border-purple-600 text-purple-600 dark:text-purple-400 dark:border-purple-400 py-2 rounded-lg font-semibold hover:bg-purple-50 dark:hover:bg-purple-900/20 transition transform hover:scale-105 relative overflow-hidden group/btn">
-                            <span class="relative z-10">Daftar</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- Features Section -->
     <section id="fitur" class="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-200 relative overflow-hidden">
@@ -504,11 +471,11 @@
         <div class="container mx-auto px-6">
             <!-- Header -->
             <div class="text-center mb-16">
-                <h3 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Ekstrakurikuler Kami</h3>
-                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                <h3 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Ekstrakurikuler Kami</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-2 text-lg max-w-2xl mx-auto">
                     Berbagai pilihan ekstrakurikuler yang dapat mengembangkan minat dan bakat siswa
                 </p>
-                <div class="w-24 h-1 bg-gradient-to-r from-green-600 to-green-400 mx-auto rounded-full mt-4"></div>
+                <div class="w-32 h-1 bg-gradient-to-r from-green-600 to-green-400 mx-auto rounded-full"></div>
             </div>
 
             <!-- Eskul Gallery Grid -->
@@ -733,7 +700,7 @@
                 <!-- Brand Section -->
                 <div class="scroll-reveal">
                     <div class="flex items-center gap-3 mb-4">
-                        <div class="h-12 w-12 rounded-lg flex items-center justify-center p-2 bg-white/10 backdrop-blur-sm">
+                        <div class="h-12 w-12 flex items-center justify-center">
                             <img src="{{ asset('images/logo13.png') }}" alt="Logo Kultilas" class="h-full w-full object-contain">
                         </div>
                         <div>
@@ -748,9 +715,9 @@
                 <div class="scroll-reveal">
                     <h4 class="text-lg font-bold mb-6 text-green-400">Quick Links</h4>
                     <ul class="space-y-3">
-                        <li><a href="#login" class="text-gray-400 hover:text-green-400 transition-colors duration-300 flex items-center gap-2">
+                        <li><a href="{{ route('login') }}" class="text-gray-400 hover:text-green-400 transition-colors duration-300 flex items-center gap-2">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            Portal Login
+                            Login
                         </a></li>
                         <li><a href="#fitur" class="text-gray-400 hover:text-green-400 transition-colors duration-300 flex items-center gap-2">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>

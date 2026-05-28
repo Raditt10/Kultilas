@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Admin</title>
+    <title>Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class'
+        }
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -75,10 +80,10 @@
     }
     
     .glass-card {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(253, 250, 246, 0.97);
         backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(221, 216, 207, 0.4);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
     }
     
     .dark .glass-card {
@@ -206,7 +211,7 @@
         height: 20px;
         border: 2px solid #d1d5db;
         border-radius: 6px;
-        background: white;
+        background: #F5F1EB;
         transition: all 0.3s ease;
         margin-right: 8px;
     }
@@ -268,93 +273,9 @@
 
 <div class="full-bg"></div>
 
-<!-- Header Navigation -->
-<header class="fixed top-0 left-0 right-0 z-50 fade-in">
-    <div class="glass-card mx-4 mt-4 rounded-2xl">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo & School Name -->
-                <div class="flex items-center space-x-3">
-                    <div class="flex-shrink-0">
-                        <div class="w-10 h-10 rounded-xl flex items-center justify-center">
-                            <img src="{{ asset('images/logo13.png') }}" alt="Logo Kultilas" class="h-8 w-8 object-contain">
-                        </div>
-                    </div>
-                    <div class="hidden sm:block">
-                        <h1 class="text-lg font-bold text-gray-900 dark:text-white">SMKN 13</h1>
-                        <p class="text-xs text-gray-600 dark:text-gray-300">Sistem Informasi Akademik</p>
-                    </div>
-                </div>
-                
-                <!-- Navigation Links -->
-                <nav class="hidden md:flex items-center space-x-1">
-                    <a href="{{ route('home') }}" class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-lg transition-all duration-200">
-                        <span class="flex items-center">
-                            <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                            </svg>
-                            Beranda
-                        </span>
-                    </a>
-                    <a href="{{ route('login') }}" class="px-4 py-2 text-sm font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                        <span class="flex items-center">
-                            <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
-                            </svg>
-                            Login
-                        </span>
-                    </a>
-                </nav>
-                
-                <!-- Right Side Actions -->
-                <div class="flex items-center space-x-2">
-                    <!-- Dark Mode Toggle -->
-                    <button type="button" id="theme-toggle" class="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors">
-                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                        </svg>
-                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                    
-                    <!-- Mobile Menu Button -->
-                    <div class="md:hidden">
-                        <button type="button" id="mobile-menu-button" class="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-700">
-            <div class="px-4 py-3 space-y-1">
-                <a href="{{ route('home') }}" class="block px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-lg transition-all duration-200">
-                    <span class="flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                        </svg>
-                        Beranda
-                    </span>
-                </a>
-                <a href="{{ route('login') }}" class="block px-4 py-2 text-sm font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                    <span class="flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
-                        </svg>
-                        Login
-                    </span>
-                </a>
-            </div>
-        </div>
-    </div>
-</header>
 
-<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 pt-28">
+
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-md w-full fade-in">
         <!-- Logo Badge -->
         <div class="text-center mb-8 floating">
@@ -368,7 +289,7 @@
             <!-- Header -->
             <div class="text-center mb-8">
                 <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent mb-3">
-                    Login Admin
+                    Masuk
                 </h2>
                 <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">
                     Silakan masuk dengan username Anda untuk melanjutkan
@@ -412,7 +333,7 @@
                             required
                             autofocus
                             autocomplete="username"
-                            class="input-field pl-12 w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-0 focus:border-green-500 transition-all duration-300"
+                            class="input-field pl-12 w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-600 bg-[#F5F1EB] dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-0 focus:border-green-500 transition-all duration-300"
                             placeholder="Masukkan username Anda">
                     </div>
                     <x-input-error :messages="$errors->get('username')" class="mt-2" />
@@ -434,7 +355,7 @@
                             id="password" 
                             required
                             autocomplete="current-password"
-                            class="input-field pl-12 w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-0 focus:border-green-500 transition-all duration-300"
+                            class="input-field pl-12 w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-600 bg-[#F5F1EB] dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-0 focus:border-green-500 transition-all duration-300"
                             placeholder="Masukkan password Anda">
                     </div>
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -465,15 +386,15 @@
                 </button>
             </form>
             
-            <!-- Back Link -->
+            <!-- Register Link -->
             <div class="mt-6 text-center">
                 <a 
-                    href="{{ route('home') }}" 
-                    class="inline-flex items-center text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm font-medium transition-colors duration-300">
+                    href="{{ route('siswa.register') }}" 
+                    class="inline-flex items-center text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 text-sm font-medium transition-colors duration-300">
                     <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
                     </svg>
-                    Kembali ke Beranda
+                    Belum punya akun? Daftar di sini
                 </a>
             </div>
         </div>
@@ -488,28 +409,15 @@
 </div>
 
 <script>
-    // Dark mode toggle
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const themeStorageKey = 'darkMode';
 
-    const themeStorageKey = 'theme:admin-login';
-
-    function applyTheme(theme) {
-        const isDark = theme === 'dark';
+    function applyTheme(isDark) {
         document.documentElement.classList.toggle('dark', isDark);
-        themeToggleLightIcon.classList.toggle('hidden', !isDark);
-        themeToggleDarkIcon.classList.toggle('hidden', isDark);
     }
 
-    // Default selalu light untuk halaman ini (tidak ikut halaman lain)
-    applyTheme(localStorage.getItem(themeStorageKey) === 'dark' ? 'dark' : 'light');
-
-    themeToggleBtn.addEventListener('click', function() {
-        const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-        localStorage.setItem(themeStorageKey, nextTheme);
-        applyTheme(nextTheme);
-    });
+    // Read theme state
+    const currentThemeIsDark = localStorage.getItem(themeStorageKey) === 'true';
+    applyTheme(currentThemeIsDark);
     
     // Mobile menu toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');

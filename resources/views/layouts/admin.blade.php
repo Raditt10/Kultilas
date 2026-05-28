@@ -254,9 +254,80 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
         }
+
+        /* ===== PASTEL LIGHT MODE PALETTE ===== */
+        /* Only applies when NOT in dark mode */
+        html:not(.dark) body {
+            background-color: #EEE9E1 !important;
+        }
+
+        /* Sidebar & cards */
+        html:not(.dark) #sidebar {
+            background-color: #F9F7F3 !important;
+            border-right-color: #DDD8CF !important;
+        }
+
+        /* Sidebar logo area border */
+        html:not(.dark) #sidebar .border-b {
+            border-color: #DDD8CF !important;
+        }
+
+        /* Main wrapper top bar — keep green gradient, no override needed */
+
+        /* White cards → warm cream */
+        html:not(.dark) .bg-white {
+            background-color: #FDFAF6 !important;
+        }
+
+        /* Gray-50 subtle sections → warmer off-white */
+        html:not(.dark) .bg-gray-50 {
+            background-color: #F5F1EB !important;
+        }
+
+        /* Gray-100 backgrounds → warm pastel */
+        html:not(.dark) .bg-gray-100 {
+            background-color: #EDE8E0 !important;
+        }
+
+        /* Table header */
+        html:not(.dark) thead .bg-gray-50,
+        html:not(.dark) thead tr {
+            background-color: #EDE8E0 !important;
+        }
+
+        /* Card borders → softer warm tone */
+        html:not(.dark) .border-gray-100 {
+            border-color: #DDD8CF !important;
+        }
+        html:not(.dark) .border-gray-200 {
+            border-color: #D4CFC7 !important;
+        }
+
+        /* Hover states */
+        html:not(.dark) .hover\:bg-green-50:hover {
+            background-color: #EDFAF1 !important;
+        }
+        html:not(.dark) .hover\:bg-gray-100:hover {
+            background-color: #E5E0D8 !important;
+        }
+
+        /* Active nav item */
+        html:not(.dark) .bg-green-100 {
+            background-color: #D9F3E5 !important;
+        }
+
+        /* Sidebar nav hover */
+        html:not(.dark) .nav-link:hover {
+            background-color: #EAF7F0 !important;
+        }
+
+        /* Table dividers */
+        html:not(.dark) .divide-gray-200 > * + * {
+            border-color: #DDD8CF !important;
+        }
     </style>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
+<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
     <!-- Page Loading Overlay -->
     <div id="pageLoadingOverlay" class="page-loading-overlay">
         <div class="text-center">

@@ -9,6 +9,11 @@
         tailwind.config = {
             darkMode: 'class'
         }
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,10 +80,10 @@
     }
     
     .glass-card {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(253, 250, 246, 0.97);
         backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(221, 216, 207, 0.4);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
     }
     
     .dark .glass-card {
@@ -206,7 +211,7 @@
         height: 20px;
         border: 2px solid #d1d5db;
         border-radius: 6px;
-        background: white;
+        background: #F5F1EB;
         transition: all 0.3s ease;
         margin-right: 8px;
     }
@@ -457,7 +462,7 @@
                             required
                             autofocus
                             autocomplete="nis"
-                            class="input-field pl-12 w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-0 focus:border-green-500 transition-all duration-300"
+                            class="input-field pl-12 w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-600 bg-[#F5F1EB] dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-0 focus:border-green-500 transition-all duration-300"
                             placeholder="Contoh: 2024001">
                     </div>
                     @error('nis')
@@ -546,22 +551,23 @@
     const themeToggleBtn = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-    const themeStorageKey = 'theme:siswa-login';
+    const themeStorageKey = 'darkMode';
 
-    function applyTheme(theme) {
-        const isDark = theme === 'dark';
+    function applyTheme(isDark) {
         document.documentElement.classList.toggle('dark', isDark);
         themeToggleLightIcon.classList.toggle('hidden', !isDark);
         themeToggleDarkIcon.classList.toggle('hidden', isDark);
     }
 
-    // Default selalu light untuk halaman ini (tidak ikut halaman lain)
-    applyTheme(localStorage.getItem(themeStorageKey) === 'dark' ? 'dark' : 'light');
+    // Read theme state
+    const currentThemeIsDark = localStorage.getItem(themeStorageKey) === 'true';
+    applyTheme(currentThemeIsDark);
 
     themeToggleBtn.addEventListener('click', function() {
-        const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-        localStorage.setItem(themeStorageKey, nextTheme);
-        applyTheme(nextTheme);
+        const isCurrentlyDark = document.documentElement.classList.contains('dark');
+        const nextThemeIsDark = !isCurrentlyDark;
+        localStorage.setItem(themeStorageKey, nextThemeIsDark ? 'true' : 'false');
+        applyTheme(nextThemeIsDark);
     });
     
     // Mobile menu toggle

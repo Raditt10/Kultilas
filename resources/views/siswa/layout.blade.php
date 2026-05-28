@@ -18,12 +18,30 @@
         * {
             font-family: 'Poppins', sans-serif;
         }
-        body {
-            background: transparent;
+        /* ===== PASTEL LIGHT MODE PALETTE ===== */
+        html:not(.dark) body,
+        html:not(.dark) .bg-gray-100 {
+            background-color: #EEE9E1 !important;
+        }
+        html:not(.dark) .bg-white {
+            background-color: #FDFAF6 !important;
+        }
+        html:not(.dark) .bg-gray-50 {
+            background-color: #F5F1EB !important;
+        }
+        html:not(.dark) .border-gray-100 { border-color: #DDD8CF !important; }
+        html:not(.dark) .border-gray-200 { border-color: #D4CFC7 !important; }
+        html:not(.dark) .divide-gray-200 > * + * { border-color: #DDD8CF !important; }
+        /* Dropdown menus */
+        html:not(.dark) [class*="bg-white"][class*="rounded-xl"][class*="shadow"] {
+            background-color: #FDFAF6 !important;
+        }
+        html:not(.dark) .hover\:bg-gray-100:hover {
+            background-color: #EDE8E0 !important;
         }
     </style>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
+<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
     <!-- Sidebar -->
     <div id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-gradient-to-b from-green-700 to-green-900 dark:from-gray-800 dark:to-gray-950 shadow-2xl transform -translate-x-full transition-all duration-300 ease-in-out z-50">
         <div class="flex items-center justify-between p-6 border-b border-green-600">
