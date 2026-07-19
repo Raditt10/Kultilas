@@ -11,12 +11,15 @@ use App\Http\Controllers\Admin\PendaftaranController;
 use App\Http\Controllers\Admin\PresensiController;
 use App\Http\Controllers\Admin\PrestasiController;
 use App\Http\Controllers\Admin\DashboardContentController;
+use App\Models\DashboardContent;
 use App\Models\Eskul;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $eskuls = Eskul::all();
-    return view('home', compact('eskuls'));
+    $newsItems = DashboardContent::active()->ofType('news')->orderBy('order')->get();
+    $announcements = DashboardContent::active()->ofType('announcement')->orderBy('created_at', 'desc')->get();
+    return view('home', compact('eskuls', 'newsItems', 'announcements'));
 })->name('home');
 
 Route::get('/dashboard', function () {

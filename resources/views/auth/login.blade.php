@@ -129,8 +129,8 @@
     }
     
     .btn-primary:hover::before {
-        width: 300px;
-        height: 300px;
+        width: 600px;
+        height: 600px;
     }
     
     .btn-primary:hover {
@@ -277,13 +277,6 @@
 
 <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-md w-full fade-in">
-        <!-- Logo Badge -->
-        <div class="text-center mb-8 floating">
-             <div class="inline-flex items-center justify-center w-20 h-20 logo-badge rounded-2xl mb-4">
-                <img src="{{ asset('images/logo13.png') }}" alt="Kultilas Logo" class="w-full h-full object-contain">
-            </div>
-        </div>
-        
         <!-- Login Card -->
         <div class="glass-card rounded-3xl p-8 md:p-10">
             <!-- Header -->
@@ -329,7 +322,7 @@
                             type="text" 
                             name="username" 
                             id="username" 
-                            value="{{ old('username') }}" 
+                            value="{{ old('username') }}" z
                             required
                             autofocus
                             autocomplete="username"
@@ -397,13 +390,6 @@
                     Belum punya akun? Daftar di sini
                 </a>
             </div>
-        </div>
-        
-        <!-- Footer Info -->
-        <div class="mt-8 text-center">
-            <p class="footer-text text-sm">
-                © 2024 SMKN 13. Semua hak dilindungi.
-            </p>
         </div>
     </div>
 </div>

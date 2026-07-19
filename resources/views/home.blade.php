@@ -232,11 +232,11 @@
             background: linear-gradient(to bottom, #F5F1EB, #FDFAF6) !important;
         }
 
-        html:not(.dark) section#fitur {
+        html:not(.dark) section#berita {
             background: linear-gradient(to bottom, #FDFAF6, #F5F1EB) !important;
         }
 
-        /* Tentang/Ekstrakurikuler section — same warm cream as #fitur */
+        /* Tentang/Ekstrakurikuler section — same warm cream as #berita */
         html:not(.dark) section#tentang {
             background: linear-gradient(to bottom, #F5F1EB, #FDFAF6) !important;
         }
@@ -268,6 +268,36 @@
         html:not(.dark) .border-gray-100.dark\:border-gray-700 {
             border-color: #DDD8CF !important;
         }
+
+        /* Pengumuman section light mode */
+        html:not(.dark) section#pengumuman {
+            background: linear-gradient(to bottom, #F5F1EB, #FDFAF6) !important;
+        }
+
+        /* Hide scrollbar for horizontal scroll */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Line clamp utilities */
+        .line-clamp-1 {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
@@ -286,12 +316,9 @@
                     </div>
                 </div>
 
-                <div class="hidden md:flex gap-2 items-center bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-2 rounded-full shadow-inner">
-                    <a href="{{ route('login') }}" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white font-medium rounded-full transition-all duration-300 hover:shadow-md hover:scale-105 transform">
-                        Login
-                    </a>
-                    <a href="#fitur" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white font-medium rounded-full transition-all duration-300 hover:shadow-md hover:scale-105 transform">
-                        Fitur
+                <div class="hidden md:flex gap-2 items-center bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm px-3 py-2 rounded-full shadow-inner"> 
+                    <a href="#berita" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white font-medium rounded-full transition-all duration-300 hover:shadow-md hover:scale-105 transform">
+                        Berita
                     </a>
                     <a href="#tentang" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 hover:text-white font-medium rounded-full transition-all duration-300 hover:shadow-md hover:scale-105 transform">
                         Ekstrakurikuler
@@ -370,8 +397,8 @@
 
     
 
-    <!-- Features Section -->
-    <section id="fitur" class="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-200 relative overflow-hidden">
+    <!-- Berita Ekstrakurikuler Section -->
+    <section id="berita" class="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-200 relative overflow-hidden">
         <!-- Background Elements -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
             <div class="absolute -top-40 -right-40 w-80 h-80 bg-green-200/10 dark:bg-green-900/10 rounded-full blur-3xl"></div>
@@ -380,71 +407,79 @@
 
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16 scroll-reveal">
-                <h3 class="text-4xl md:text-5xl font-bold text-green-800 dark:text-green-400 mb-4 gradient-text">✨ Fitur Unggulan</h3>
-                <p class="text-gray-600 dark:text-gray-400 mb-2 text-lg">Sistem yang lengkap dan powerful untuk manajemen ekstrakurikuler</p>
+                <h3 class="text-4xl md:text-5xl font-bold text-green-800 dark:text-green-400 mb-4 gradient-text">Berita Ekstrakurikuler</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-2 text-lg">Kabar terbaru dan informasi penting dari dunia ekstrakurikuler SMKN 13 Bandung</p>
                 <div class="w-32 h-1 bg-gradient-to-r from-green-600 to-green-400 mx-auto rounded-full"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Feature 1 -->
-                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-purple-500/50 overflow-hidden scroll-reveal">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-50/0 to-purple-100/0 dark:from-purple-900/0 dark:to-purple-900/0 group-hover:from-purple-50/50 group-hover:to-purple-100/30 dark:group-hover:from-purple-900/20 dark:group-hover:to-purple-900/10 transition-all duration-300"></div>
-                    <div class="relative z-10">
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900 dark:to-purple-800 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 group-hover:shadow-lg">
-                            <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-                            </svg>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                @forelse($newsItems->take(4) as $news)
+                    <div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 overflow-hidden scroll-reveal transform hover:-translate-y-2">
+                        <!-- Cover Image Area -->
+                        <div class="relative h-52 overflow-hidden bg-gradient-to-br from-green-500 to-emerald-600">
+                            <!-- Category Badge Overlay -->
+                            <div class="absolute top-3 left-3 z-20">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm text-gray-700 dark:text-gray-200 shadow-sm">
+                                    <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                                    Berita
+                                </span>
+                            </div>
+                            <!-- Gradient Overlay for Text -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10"></div>
+                            <!-- Placeholder Visual with Icon -->
+                            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-green-400 via-emerald-500 to-teal-600 group-hover:scale-110 transition-transform duration-700">
+                                <div class="text-white/20">
+                                    <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                                </div>
+                            </div>
+                            <!-- Title on Image -->
+                            <div class="absolute bottom-0 left-0 right-0 p-4 z-10">
+                                <h4 class="text-white font-bold text-base leading-snug line-clamp-2 drop-shadow-lg">{{ $news->title }}</h4>
+                            </div>
                         </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-800 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">Pendaftaran Online</h4>
-                        <p class="text-gray-600 dark:text-gray-400">Siswa dapat mendaftar ekstrakurikuler secara online dengan mudah dan cepat tanpa paperwork</p>
-                        <div class="mt-4 flex items-center text-purple-600 dark:text-purple-400 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span>Pelajari lebih lanjut</span>
-                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Feature 2 -->
-                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-blue-500/50 overflow-hidden scroll-reveal">
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-100/0 dark:from-blue-900/0 dark:to-blue-900/0 group-hover:from-blue-50/50 group-hover:to-blue-100/30 dark:group-hover:from-blue-900/20 dark:group-hover:to-blue-900/10 transition-all duration-300"></div>
-                    <div class="relative z-10">
-                        <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 group-hover:shadow-lg">
-                            <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Presensi Digital</h4>
-                        <p class="text-gray-600 dark:text-gray-400">Pencatatan kehadiran siswa secara digital, real-time, dan akurat dengan laporan otomatis</p>
-                        <div class="mt-4 flex items-center text-blue-600 dark:text-blue-400 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span>Pelajari lebih lanjut</span>
-                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+                        <!-- Content Body -->
+                        <div class="p-5">
+                            <!-- Description -->
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3 leading-relaxed">{{ \Illuminate\Support\Str::limit(strip_tags($news->content), 100) }}</p>
 
-                <!-- Feature 3 -->
-                <div class="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-green-500/50 overflow-hidden scroll-reveal">
-                    <div class="absolute inset-0 bg-gradient-to-br from-green-50/0 to-green-100/0 dark:from-green-900/0 dark:to-green-900/0 group-hover:from-green-50/50 group-hover:to-green-100/30 dark:group-hover:from-green-900/20 dark:group-hover:to-green-900/10 transition-all duration-300"></div>
-                    <div class="relative z-10">
-                        <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 dark:from-green-900 dark:to-green-800 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 group-hover:shadow-lg">
-                            <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                            </svg>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-800 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">Pencatatan Prestasi</h4>
-                        <p class="text-gray-600 dark:text-gray-400">Dokumentasi prestasi siswa yang terstruktur dengan portfolio dan sertifikat digital</p>
-                        <div class="mt-4 flex items-center text-green-600 dark:text-green-400 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span>Pelajari lebih lanjut</span>
-                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
+                            <!-- Meta Info -->
+                            <div class="space-y-2 mb-4">
+                                @if($news->author)
+                                <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+                                    <svg class="w-3.5 h-3.5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                    <span>{{ $news->author }}</span>
+                                </div>
+                                @endif
+                                <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+                                    <svg class="w-3.5 h-3.5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    <span>{{ $news->created_at->format('d M Y') }}</span>
+                                </div>
+                            </div>
+
+                            @if($news->category)
+                            <div class="mb-4">
+                                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-green-50 text-green-700 dark:bg-green-900/40 dark:text-green-300 border border-green-200 dark:border-green-700">{{ ucfirst($news->category) }}</span>
+                            </div>
+                            @endif
+
+                            <!-- CTA Button -->
+                            <button class="w-full py-2.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-sm font-semibold rounded-xl transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-[1.02]">
+                                Lihat Detail
+                            </button>
                         </div>
                     </div>
-                </div>
+                @empty
+                    <div class="col-span-full text-center py-16">
+                        <div class="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 text-lg font-medium">Belum ada berita eskul tersedia saat ini.</p>
+                        <p class="text-gray-400 dark:text-gray-500 text-sm mt-1">Berita akan muncul di sini setelah ditambahkan oleh admin.</p>
+                    </div>
+                @endforelse
             </div>
 
             <!-- Additional Stats Section -->
@@ -460,6 +495,87 @@
                 <div class="text-center scroll-reveal">
                     <div class="counter">100%</div>
                     <p class="text-gray-600 dark:text-gray-400 mt-2">Kepuasan Pengguna</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pengumuman Section -->
+    <section id="pengumuman" class="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-200 relative overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-1/4 w-72 h-72 bg-green-100/20 dark:bg-green-900/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-1/4 w-60 h-60 bg-emerald-100/20 dark:bg-emerald-900/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <!-- Header with "Lihat Semua" link -->
+            <div class="flex items-center justify-between mb-10 scroll-reveal">
+                <div>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Pengumuman</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-green-600 to-green-400 rounded-full mt-3"></div>
+                </div>
+            </div>
+
+            <!-- Horizontal Scrollable Cards -->
+            <div class="relative scroll-reveal" x-data="{ scrollContainer: null }" x-init="scrollContainer = $refs.announcementScroll">
+                <!-- Scroll Buttons -->
+                <button @click="scrollContainer.scrollBy({ left: -360, behavior: 'smooth' })" class="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white dark:bg-gray-800 shadow-lg rounded-full items-center justify-center hover:bg-green-50 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-600">
+                    <svg class="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button @click="scrollContainer.scrollBy({ left: 360, behavior: 'smooth' })" class="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white dark:bg-gray-800 shadow-lg rounded-full items-center justify-center hover:bg-green-50 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-600">
+                    <svg class="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+
+                <div x-ref="announcementScroll" class="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
+                    @forelse($announcements as $announcement)
+                        <div class="flex-shrink-0 w-80 md:w-96 snap-start group">
+                            <div class="relative h-56 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 cursor-pointer">
+                                <!-- Background Gradient -->
+                                <div class="absolute inset-0 bg-gradient-to-br from-green-600 via-emerald-700 to-teal-800 group-hover:from-green-500 group-hover:via-emerald-600 group-hover:to-teal-700 transition-all duration-500"></div>
+                                <!-- Pattern Overlay -->
+                                <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><circle cx=%2230%22 cy=%2230%22 r=%221.5%22 fill=%22white%22/></svg>');"></div>
+                                <!-- Glow Effect -->
+                                <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition-all duration-500"></div>
+                                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
+
+                                <!-- Content -->
+                                <div class="relative z-10 h-full flex flex-col justify-between p-6">
+                                    <!-- Top: Badge -->
+                                    <div class="flex items-center justify-end">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-red-500 text-white shadow-md">
+                                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clip-rule="evenodd"></path></svg>
+                                            Pengumuman
+                                        </span>
+                                    </div>
+
+                                    <!-- Bottom: Title & Info -->
+                                    <div>
+                                        <h4 class="text-white font-bold text-lg leading-snug mb-2 line-clamp-2 drop-shadow-lg">{{ $announcement->title }}</h4>
+                                        <p class="text-white/70 text-sm line-clamp-1">{{ \Illuminate\Support\Str::limit(strip_tags($announcement->content), 60) }}</p>
+                                        @if($announcement->category)
+                                        <div class="mt-3">
+                                            <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold text-white">{{ $announcement->created_at->translatedFormat('l, d F Y') }}</span>
+                                        </div>
+                                        @else
+                                        <div class="mt-3">
+                                            <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold text-white">{{ $announcement->created_at->translatedFormat('l, d F Y') }}</span>
+                                        </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="flex-shrink-0 w-full text-center py-12">
+                            <div class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-500 dark:text-gray-400 font-medium">Belum ada pengumuman saat ini.</p>
+                            <p class="text-gray-400 dark:text-gray-500 text-sm mt-1">Pengumuman akan muncul di sini setelah ditambahkan oleh admin.</p>
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -683,10 +799,6 @@
         </div>
     </section>
 
-    <!-- Fitur Section -->
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer id="kontak" class="bg-gradient-to-b from-gray-800 to-gray-900 dark:from-gray-950 dark:to-gray-950 text-white py-16 transition-colors duration-200 relative overflow-hidden">
         <!-- Background Animation -->
@@ -719,9 +831,9 @@
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                             Login
                         </a></li>
-                        <li><a href="#fitur" class="text-gray-400 hover:text-green-400 transition-colors duration-300 flex items-center gap-2">
+                        <li><a href="#berita" class="text-gray-400 hover:text-green-400 transition-colors duration-300 flex items-center gap-2">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            Fitur
+                            Berita
                         </a></li>
                         <li><a href="#tentang" class="text-gray-400 hover:text-green-400 transition-colors duration-300 flex items-center gap-2">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
