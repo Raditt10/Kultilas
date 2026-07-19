@@ -28,7 +28,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'username' => ['required', 'string'],
-            'password' => ['required', 'string'],
+            'password' => ['nullable', 'string'],
         ];
     }
 
@@ -40,6 +40,25 @@ class LoginRequest extends FormRequest
     public function authenticate(): void
     {
         $this->ensureIsNotRateLimited();
+
+        // Check if username is a student NIS
+        $siswa = \App\Models\Siswa::where('nis', $this->username)->first();
+        if ($siswa) {
+            session([
+                'siswa_id' => $siswa->id_siswa,
+                'siswa_name' => $siswa->nama_siswa,
+                'siswa_email' => $siswa->email,
+                'siswa_foto' => $siswa->foto_profil,
+            ]);
+            RateLimiter::clear($this->throttleKey());
+            return;
+        }
+
+        if (empty($this->password)) {
+            throw ValidationException::withMessages([
+                'password' => 'Password wajib diisi.',
+            ]);
+        }
 
         if (! Auth::attempt($this->only('username', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());

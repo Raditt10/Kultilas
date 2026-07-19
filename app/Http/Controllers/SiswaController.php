@@ -46,12 +46,12 @@ class SiswaController extends Controller
 
         Siswa::create($request->all());
 
-        return redirect()->route('siswa.login')->with('success', 'Registrasi berhasil! Silakan login dengan NIS Anda.');
+        return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login dengan NIS Anda.');
     }
 
     public function login()
     {
-        return view('siswa.login');
+        return redirect()->route('login');
     }
 
     public function authenticate(Request $request)
@@ -74,7 +74,7 @@ class SiswaController extends Controller
     public function dashboard()
     {
         if (!session('siswa_id')) {
-            return redirect()->route('siswa.login');
+            return redirect()->route('login');
         }
 
         $siswa = Siswa::findOrFail(session('siswa_id'));
@@ -89,7 +89,7 @@ class SiswaController extends Controller
     public function eskul()
     {
         if (!session('siswa_id')) {
-            return redirect()->route('siswa.login');
+            return redirect()->route('login');
         }
 
         $siswa = Siswa::findOrFail(session('siswa_id'));
@@ -105,7 +105,7 @@ class SiswaController extends Controller
     public function daftarEskul(Request $request, $id)
     {
         if (!session('siswa_id')) {
-            return redirect()->route('siswa.login');
+            return redirect()->route('login');
         }
 
         $siswa_id = session('siswa_id');
@@ -131,7 +131,7 @@ class SiswaController extends Controller
     public function presensi()
     {
         if (!session('siswa_id')) {
-            return redirect()->route('siswa.login');
+            return redirect()->route('login');
         }
 
         $siswa_id = session('siswa_id');
@@ -147,7 +147,7 @@ class SiswaController extends Controller
     public function prestasi()
     {
         if (!session('siswa_id')) {
-            return redirect()->route('siswa.login');
+            return redirect()->route('login');
         }
 
         $siswa_id = session('siswa_id');
@@ -162,7 +162,7 @@ class SiswaController extends Controller
     public function profile()
     {
         if (!session('siswa_id')) {
-            return redirect()->route('siswa.login');
+            return redirect()->route('login');
         }
 
         $siswa = Siswa::findOrFail(session('siswa_id'));
@@ -173,7 +173,7 @@ class SiswaController extends Controller
     public function updateProfile(Request $request)
     {
         if (!session('siswa_id')) {
-            return redirect()->route('siswa.login');
+            return redirect()->route('login');
         }
 
         $siswa = Siswa::findOrFail(session('siswa_id'));
@@ -226,6 +226,6 @@ class SiswaController extends Controller
     public function logout()
     {
         session()->forget(['siswa_id', 'siswa_name', 'siswa_email', 'siswa_foto']);
-        return redirect()->route('siswa.login')->with('success', 'Berhasil logout!');
+        return redirect()->route('login')->with('success', 'Berhasil logout!');
     }
 }

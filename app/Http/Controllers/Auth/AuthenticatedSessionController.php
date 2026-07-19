@@ -28,6 +28,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // Check if student logged in
+        if (session('siswa_id')) {
+            return redirect()->route('siswa.dashboard');
+        }
+
         // Redirect based on user role
         $user = Auth::user();
         

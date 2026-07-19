@@ -282,10 +282,10 @@
             <!-- Header -->
             <div class="text-center mb-8">
                 <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent mb-3">
-                    Masuk
+                    Halo!
                 </h2>
                 <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">
-                    Silakan masuk dengan username Anda untuk melanjutkan
+                    Silakan masuk dengan username atau NIS Anda untuk melanjutkan
                 </p>
             </div>
             
@@ -310,7 +310,7 @@
                 
                 <div class="input-group">
                     <label for="username" class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">
-                        Username
+                        Username atau NIS
                     </label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -322,19 +322,19 @@
                             type="text" 
                             name="username" 
                             id="username" 
-                            value="{{ old('username') }}" z
+                            value="{{ old('username') }}"
                             required
                             autofocus
                             autocomplete="username"
                             class="input-field pl-12 w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-600 bg-[#F5F1EB] dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-0 focus:border-green-500 transition-all duration-300"
-                            placeholder="Masukkan username Anda">
+                            placeholder="Masukkan username atau NIS Anda">
                     </div>
                     <x-input-error :messages="$errors->get('username')" class="mt-2" />
                 </div>
                 
                 <div class="input-group">
                     <label for="password" class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">
-                        Password
+                        Password <span class="text-xs text-gray-400 dark:text-gray-400 font-normal">(Kosongkan jika masuk sebagai Siswa)</span>
                     </label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -346,7 +346,6 @@
                             type="password" 
                             name="password" 
                             id="password" 
-                            required
                             autocomplete="current-password"
                             class="input-field pl-12 w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-600 bg-[#F5F1EB] dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-0 focus:border-green-500 transition-all duration-300"
                             placeholder="Masukkan password Anda">
@@ -374,7 +373,7 @@
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
                         </svg>
-                        Masuk ke Portal
+                        Masuk
                     </span>
                 </button>
             </form>
