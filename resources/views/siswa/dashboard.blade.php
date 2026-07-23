@@ -40,194 +40,120 @@
 
     <!-- Main Dashboard Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Left Column -->
-        <div class="lg:col-span-2 space-y-8">
-            <!-- Pengumuman Eskul -->
-            <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 transition-all duration-200 hover:shadow-2xl relative overflow-hidden">
-                <div class="absolute -top-10 -right-10 w-40 h-40 bg-green-100/60 dark:bg-green-500/10 rounded-full blur-3xl"></div>
-                <div class="flex items-center justify-between mb-6">
-                    <div class="flex items-center">
-                        <div class="mr-3">
-                            <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
-                            </svg>
-                        </div>
-                        <h2 class="text-xl font-bold text-gray-800 dark:text-white">Pengumuman Penting</h2>
-                    </div>
-                    <span class="text-green-600 hover:text-green-700 text-sm font-medium cursor-pointer">Lihat Semua</span>
-                </div>
-                @php
-                    $announcements = App\Models\DashboardContent::active()
-                        ->ofType('announcement')
-                        ->orderBy('order')
-                        ->orderBy('created_at', 'desc')
-                        ->limit(4)
-                        ->get();
-                @endphp
-                <div class="space-y-4">
-                    @forelse($announcements as $announcement)
-                        <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40">
-                            <div class="flex items-start justify-between">
-                                <div class="pr-4">
-                                    <h3 class="font-semibold text-gray-800 dark:text-white text-sm">{{ $announcement->title ?? 'Pengumuman' }}</h3>
-                                    <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">{{ $announcement->content }}</p>
-                                    <div class="flex items-center space-x-2 text-[11px] text-gray-500 dark:text-gray-400 mt-2">
-                                        <span>{{ $announcement->formatted_date ?? optional($announcement->created_at)->format('d M Y') }}</span>
-                                        @if(!empty($announcement->author))
-                                            <span>• {{ $announcement->author }}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <span class="text-[11px] px-2 py-1 rounded-full bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-200">{{ $announcement->category ?? 'Umum' }}</span>
-                            </div>
-                        </div>
-                    @empty
-                        <div class="text-center py-10">
-                            <div class="bg-gray-100 dark:bg-gray-700/60 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-8 h-8 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <!-- Left Column: Pengumuman Penting -->
+        <div class="lg:col-span-2">
+            <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 transition-all duration-200 hover:shadow-2xl relative overflow-hidden h-full flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="mr-3">
+                                <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
                                 </svg>
                             </div>
-                            <h4 class="text-base font-semibold text-gray-800 dark:text-white mb-1">Belum Ada Pengumuman</h4>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">Pengumuman dan informasi terbaru dari admin akan muncul di sini.</p>
+                            <h2 class="text-xl font-bold text-gray-800 dark:text-white">Pengumuman Penting</h2>
                         </div>
-                    @endforelse
-                </div>
-            </div>
-
-
-
-            <!-- Ekstrakurikuler Saya -->
-            <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 transition-all duration-200 hover:shadow-2xl relative overflow-hidden">
-                <div class="absolute -top-10 -left-10 w-40 h-40 bg-emerald-100/60 dark:bg-emerald-500/10 rounded-full blur-3xl"></div>
-                <div class="flex items-center justify-between mb-6">
-                    <div class="flex items-center">
-                        <div class="mr-3">
-                            <svg class="w-6 h-6 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                            </svg>
-                        </div>
-                        <h2 class="text-xl font-bold text-gray-800 dark:text-white">Ekstrakurikuler Saya</h2>
+                        <span class="text-green-600 hover:text-green-700 text-sm font-medium cursor-pointer">Lihat Semua</span>
                     </div>
-                    <a href="{{ route('siswa.eskul') }}" class="text-emerald-600 hover:text-emerald-700 text-sm font-medium">Lihat Semua</a>
-                </div>
-                @if($pendaftaran->isEmpty())
-                    <div class="text-center py-12">
-                        <div class="bg-gray-100 dark:bg-gray-700 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                            </svg>
-                        </div>
-                        <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Belum Ada Ekstrakurikuler</h4>
-                        <p class="text-gray-500 dark:text-gray-400 mb-6">Ayo bergabung dengan ekstrakurikuler untuk mengembangkan bakat dan minatmu!</p>
-                        <a href="{{ route('siswa.eskul') }}" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all duration-200 transform hover:scale-105">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                            </svg>
-                            Daftar Sekarang
-                        </a>
-                    </div>
-                @else
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead class="bg-gray-50 dark:bg-gray-700">
-                                <tr>
-                                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Nama Eskul</th>
-                                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Jadwal</th>
-                                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Pembina</th>
-                                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Status</th>
-                                    <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                                @foreach($pendaftaran as $p)
-                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div class="flex-shrink-0 h-10 w-10">
-                                                    <div class="h-10 w-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center">
-                                                        <span class="text-white font-semibold text-sm">{{ substr($p->eskul->nama_eskul, 0, 2) }}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-semibold text-gray-800 dark:text-white">{{ $p->eskul->nama_eskul }}</div>
-                                                    <div class="text-xs text-gray-500 dark:text-gray-400">{{ $p->eskul->deskripsi ?? 'Eskul unggulan' }}</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-300">{{ $p->eskul->jadwal_latihan ?? '-' }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-300">{{ $p->eskul->pembina ?? 'Pembina Eskul' }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            @php
-                                                $status = strtolower($p->status);
-                                                $statusClass = [
-                                                    'diterima' => 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200',
-                                                    'pending' => 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-200',
-                                                    'ditolak' => 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-200',
-                                                ][$status] ?? 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200';
-                                            @endphp
-                                            <span class="px-3 py-1 rounded-full text-xs font-semibold {{ $statusClass }}">{{ ucfirst($p->status) }}</span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                            <a href="{{ route('siswa.eskul') }}" class="inline-flex items-center px-3 py-2 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition">
-                                                Detail
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                @endif
-            </div>
-        </div>
-
-        <!-- Right Column -->
-        <div class="space-y-8">
-
-
-            <!-- Tips & Motivasi -->
-            <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 relative overflow-hidden">
-                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-indigo-100/60 dark:bg-indigo-500/10 rounded-full blur-3xl"></div>
-                <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-6">Tips Hari Ini</h2>
-                <div class="space-y-4">
                     @php
-                        $tips = App\Models\DashboardContent::active()
-                            ->ofType('tip')
+                        $announcements = App\Models\DashboardContent::active()
+                            ->ofType('announcement')
                             ->orderBy('order')
                             ->orderBy('created_at', 'desc')
                             ->limit(4)
-                            ->get()
-                            ->map(function ($item) {
-                                return [
-                                    'title' => $item->title,
-                                    'content' => $item->content,
-                                    'author' => $item->author ?? 'Admin'
-                                ];
-                            });
-
-                        if ($tips->isEmpty()) {
-                            $tips = collect([
-                                ['title' => 'Tips Sukses Bereskul', 'content' => 'Konsistensi adalah kunci! Rajin mengikuti kegiatan tidak hanya meningkatkan skill, tapi juga membuka peluang beasiswa.', 'author' => 'Admin'],
-                                ['title' => 'Manajemen Waktu Efektif', 'content' => 'Buat jadwal harian dan prioritaskan kegiatan. Seimbangkan antara eskul dan pelajaran utama.', 'author' => 'Admin'],
-                            ]);
-                        }
+                            ->get();
                     @endphp
-
-                    @foreach($tips as $tip)
-                        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-4 rounded-lg border border-indigo-200 dark:border-indigo-700">
-                            <h3 class="font-semibold text-gray-800 dark:text-white text-sm mb-2">{{ $tip['title'] }}</h3>
-                            <p class="text-gray-600 dark:text-gray-300 text-xs mb-3">{{ $tip['content'] }}</p>
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs text-indigo-600 dark:text-indigo-400 font-medium">- {{ $tip['author'] }}</span>
+                    <div class="space-y-4">
+                        @forelse($announcements as $announcement)
+                            <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40">
+                                <div class="flex items-start justify-between">
+                                    <div class="pr-4">
+                                        <h3 class="font-semibold text-gray-800 dark:text-white text-sm">{{ $announcement->title ?? 'Pengumuman' }}</h3>
+                                        <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">{{ $announcement->content }}</p>
+                                        <div class="flex items-center space-x-2 text-[11px] text-gray-500 dark:text-gray-400 mt-2">
+                                            <span>{{ $announcement->formatted_date ?? optional($announcement->created_at)->format('d M Y') }}</span>
+                                            @if(!empty($announcement->author))
+                                                <span>• {{ $announcement->author }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <span class="text-[11px] px-2 py-1 rounded-full bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-200">{{ $announcement->category ?? 'Umum' }}</span>
+                                </div>
                             </div>
+                        @empty
+                            <div class="text-center py-10">
+                                <div class="bg-gray-100 dark:bg-gray-700/60 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-8 h-8 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-base font-semibold text-gray-800 dark:text-white mb-1">Belum Ada Pengumuman</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Pengumuman dan informasi terbaru dari admin akan muncul di sini.</p>
+                            </div>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Ekstrakurikuler Saya -->
+        <div class="lg:col-span-1">
+            <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 transition-all duration-200 hover:shadow-2xl relative overflow-hidden h-full flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="mr-3">
+                                <svg class="w-6 h-6 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-xl font-bold text-gray-800 dark:text-white">Ekstrakurikuler Saya</h2>
                         </div>
-                    @endforeach
+                        <a href="{{ route('siswa.eskul') }}" class="text-emerald-600 hover:text-emerald-700 text-sm font-medium">Lihat Semua</a>
+                    </div>
+                    @if($pendaftaran->isEmpty())
+                        <div class="text-center py-8">
+                            <div class="bg-gray-100 dark:bg-gray-700/60 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <svg class="w-7 h-7 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-base font-semibold text-gray-800 dark:text-white mb-1">Belum Ada Eskul</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Bergabunglah untuk mengembangkan minatmu.</p>
+                            <a href="{{ route('siswa.eskul') }}" class="inline-flex items-center px-4 py-2 bg-emerald-600 text-white text-xs font-semibold rounded-lg hover:bg-emerald-700 transition">
+                                Daftar Sekarang
+                            </a>
+                        </div>
+                    @else
+                        <div class="space-y-3">
+                            @foreach($pendaftaran as $p)
+                                @php
+                                    $status = strtolower($p->status);
+                                    $statusClass = [
+                                        'diterima' => 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-200',
+                                        'pending' => 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-200',
+                                        'ditolak' => 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-200',
+                                    ][$status] ?? 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200';
+                                @endphp
+                                <div class="p-3.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40 flex items-center justify-between">
+                                    <div class="flex items-center min-w-0 mr-2">
+                                        <div class="flex-shrink-0 h-9 w-9 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mr-3">
+                                            <span class="text-white font-semibold text-xs">{{ substr($p->eskul->nama_eskul, 0, 2) }}</span>
+                                        </div>
+                                        <div class="truncate">
+                                            <h4 class="text-xs font-semibold text-gray-800 dark:text-white truncate">{{ $p->eskul->nama_eskul }}</h4>
+                                            <p class="text-[11px] text-gray-500 dark:text-gray-400 truncate">{{ $p->eskul->jadwal_latihan ?? '-' }}</p>
+                                        </div>
+                                    </div>
+                                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold flex-shrink-0 {{ $statusClass }}">{{ ucfirst($p->status) }}</span>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <button type="button" onclick="toggleChatbot()" aria-label="Tutorial Aplikasi Permulaan"

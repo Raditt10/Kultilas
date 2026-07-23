@@ -31,7 +31,7 @@ class PendaftaranController extends Controller
             'id_siswa' => 'required|exists:siswa,id_siswa',
             'id_eskul' => 'required|exists:eskul,id_eskul',
             'tanggal_daftar' => 'required|date',
-            'status' => 'required|in:pending,diterima,ditolak',
+            'status' => 'required|in:tunda,diterima,ditolak',
             'keterangan' => 'nullable|string',
         ]);
 
@@ -49,7 +49,7 @@ class PendaftaranController extends Controller
     {
         $pendaftaran = PendaftaranEskul::findOrFail($id);
         $validated = $request->validate([
-            'status' => 'required|in:pending,diterima,ditolak',
+            'status' => 'required|in:tunda,diterima,ditolak',
             'keterangan' => 'nullable|string',
         ]);
 

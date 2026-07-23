@@ -38,250 +38,97 @@
             background-attachment: fixed;
             filter: blur(4px) brightness(0.95);
             z-index: -1;
-            animation: backgroundShift 20s ease-in-out infinite;
         }
     
-    @keyframes backgroundShift {
-        0%, 100% { filter: blur(4px) brightness(0.95); }
-        50% { filter: blur(4px) brightness(0.98); }
-    }
-    
-    .full-bg::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: 
-            radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 50% 50%, rgba(30, 41, 59, 0.1) 0%, transparent 100%);
-        pointer-events: none;
-    }
-    
-    .full-bg::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: 
-            radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
-        animation: pulse 4s ease-in-out infinite;
-        pointer-events: none;
-    }
-    
-    @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.8; }
-    }
-    
-    .glass-card {
-        background: rgba(253, 250, 246, 0.97);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(221, 216, 207, 0.4);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
-    }
-    
-    .dark .glass-card {
-        background: rgba(30, 41, 59, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .input-group {
-        position: relative;
-        transition: all 0.3s ease;
-    }
-    
-    .input-group:focus-within {
-        transform: translateY(-2px);
-    }
-    
-    .input-field {
-        transition: all 0.3s ease;
-    }
-    
-    .input-field:focus {
-        box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
-    }
-    
-    .btn-primary {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease;
-    }
-    
-    .btn-primary::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
-        transform: translate(-50%, -50%);
-        transition: width 0.6s, height 0.6s;
-    }
-    
-    .btn-primary:hover::before {
-        width: 600px;
-        height: 600px;
-    }
-    
-    .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.4);
-    }
-    
-    .floating {
-        animation: floating 3s ease-in-out infinite;
-    }
-    
-    @keyframes floating {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-    }
-    
-    .alert-error {
-        animation: slideInDown 0.4s ease-out;
-    }
-    
-    @keyframes slideInDown {
-        from {
+        .glass-card {
+            background: rgba(253, 250, 246, 0.97);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(221, 216, 207, 0.4);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-primary {
+            background: #059669;
+        }
+        .btn-primary:hover {
+            background: #047857;
+        }
+        
+        /* Custom Checkbox Styling */
+        .custom-checkbox {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .custom-checkbox input[type="checkbox"] {
+            position: absolute;
             opacity: 0;
-            transform: translateY(-20px);
+            cursor: pointer;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+        
+        .custom-checkbox .checkbox-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 6px;
+            background: #F5F1EB;
+            margin-right: 8px;
         }
-    }
-    
-    .fade-in {
-        animation: fadeIn 0.6s ease-out;
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    header {
-        transition: transform 0.3s ease-in-out;
-    }
-    
-    .footer-text {
-        color: #047857;
-        font-weight: 700;
-        transition: all 0.3s ease;
-        text-shadow: 0 0 10px rgba(4, 120, 87, 0.5);
-        animation: footerGlow 3s ease-in-out infinite;
-    }
-    
-    @keyframes footerGlow {
-        0%, 100% { text-shadow: 0 0 10px rgba(4, 120, 87, 0.5); }
-        50% { text-shadow: 0 0 20px rgba(4, 120, 87, 0.8), 0 0 30px rgba(16, 185, 129, 0.4); }
-    }
-    
-    /* Custom Checkbox Styling */
-    .custom-checkbox {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        cursor: pointer;
-        user-select: none;
-    }
-    
-    .custom-checkbox input[type="checkbox"] {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-    }
-    
-    .custom-checkbox .checkbox-box {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 20px;
-        height: 20px;
-        border: 2px solid #d1d5db;
-        border-radius: 6px;
-        background: #F5F1EB;
-        transition: all 0.3s ease;
-        margin-right: 8px;
-    }
-    
-    .dark .custom-checkbox .checkbox-box {
-        background: #374151;
-        border-color: #4b5563;
-    }
-    
-    .custom-checkbox input[type="checkbox"]:checked + .checkbox-box {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        border-color: #059669;
-        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
-    }
-    
-    .custom-checkbox .checkbox-icon {
-        width: 14px;
-        height: 14px;
-        display: none;
-        color: white;
-    }
-    
-    .custom-checkbox input[type="checkbox"]:checked + .checkbox-box .checkbox-icon {
-        display: block;
-        animation: checkmark 0.3s ease;
-    }
-    
-    @keyframes checkmark {
-        0% {
-            opacity: 0;
-            transform: scale(0.5);
+        
+        .dark .custom-checkbox .checkbox-box {
+            background: #374151;
+            border-color: #4b5563;
         }
-        100% {
-            opacity: 1;
-            transform: scale(1);
+        
+        .custom-checkbox input[type="checkbox"]:checked + .checkbox-box {
+            background: #059669;
+            border-color: #059669;
         }
-    }
-    
-    .custom-checkbox input[type="checkbox"]:focus + .checkbox-box {
-        outline: 2px solid #10b981;
-        outline-offset: 2px;
-    }
-    
-    .custom-checkbox .checkbox-label {
-        color: #4b5563;
-        font-weight: 500;
-        font-size: 0.875rem;
-        transition: color 0.2s ease;
-    }
-    
-    .dark .custom-checkbox .checkbox-label {
-        color: #d1d5db;
-    }
-    
-    .custom-checkbox input[type="checkbox"]:checked ~ .checkbox-label {
-        color: #047857;
-    }
-</style>
+        
+        .custom-checkbox .checkbox-icon {
+            width: 14px;
+            height: 14px;
+            display: none;
+            color: white;
+        }
+        
+        .custom-checkbox input[type="checkbox"]:checked + .checkbox-box .checkbox-icon {
+            display: block;
+        }
+        
+        .custom-checkbox .checkbox-label {
+            color: #4b5563;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        
+        .dark .custom-checkbox .checkbox-label {
+            color: #d1d5db;
+        }
+    </style>
 
 <div class="full-bg"></div>
 
 
 
 <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full fade-in">
+    <div class="max-w-md w-full">
         <!-- Login Card -->
         <div class="glass-card rounded-3xl p-8 md:p-10">
             <!-- Header -->
             <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent mb-3">
+                <h2 class="text-3xl md:text-4xl font-bold text-emerald-700 dark:text-emerald-400 mb-3">
                     Halo!
                 </h2>
                 <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">
@@ -291,7 +138,7 @@
             
             <!-- Error Alert -->
             @if($errors->any())
-                <div class="mb-6 alert-error">
+                <div class="mb-6">
                     <div class="bg-red-50 dark:bg-red-900/30 border-l-4 border-red-500 text-red-700 dark:text-red-300 px-4 py-3 rounded-lg flex items-start">
                         <svg class="w-5 h-5 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
@@ -326,7 +173,7 @@
                             required
                             autofocus
                             autocomplete="username"
-                            class="input-field pl-12 w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-600 bg-[#F5F1EB] dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-0 focus:border-green-500 transition-all duration-300"
+                            class="input-field pl-12 w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-600 bg-[#F5F1EB] dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-0 focus:border-green-500"
                             placeholder="Masukkan username atau NIS Anda">
                     </div>
                     <x-input-error :messages="$errors->get('username')" class="mt-2" />
@@ -347,7 +194,7 @@
                             name="password" 
                             id="password" 
                             autocomplete="current-password"
-                            class="input-field pl-12 w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-600 bg-[#F5F1EB] dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-0 focus:border-green-500 transition-all duration-300"
+                            class="input-field pl-12 w-full px-4 py-3.5 border-2 border-gray-200 dark:border-gray-600 bg-[#F5F1EB] dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-0 focus:border-green-500"
                             placeholder="Masukkan password Anda">
                     </div>
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -368,8 +215,8 @@
                 
                 <button 
                     type="submit" 
-                    class="btn-primary w-full text-white py-4 rounded-xl font-semibold text-base shadow-lg relative z-10">
-                    <span class="relative z-10 flex items-center justify-center">
+                    class="btn-primary w-full text-white py-4 rounded-xl font-semibold text-base shadow-md">
+                    <span class="flex items-center justify-center">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
                         </svg>
@@ -382,7 +229,7 @@
             <div class="mt-6 text-center">
                 <a 
                     href="{{ route('siswa.register') }}" 
-                    class="inline-flex items-center text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 text-sm font-medium transition-colors duration-300">
+                    class="inline-flex items-center text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 text-sm font-medium">
                     <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
                     </svg>
@@ -403,70 +250,6 @@
     // Read theme state
     const currentThemeIsDark = localStorage.getItem(themeStorageKey) === 'true';
     applyTheme(currentThemeIsDark);
-    
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-            
-            // Animate icon
-            const icon = this.querySelector('svg');
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-            } else {
-                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
-            }
-        });
-    }
-    
-    // Auto-hide error message after 5 seconds
-    setTimeout(function() {
-        const errorAlert = document.querySelector('.alert-error');
-        if (errorAlert) {
-            errorAlert.style.transition = 'all 0.4s ease-out';
-            errorAlert.style.opacity = '0';
-            errorAlert.style.transform = 'translateY(-20px)';
-            setTimeout(() => errorAlert.remove(), 400);
-        }
-    }, 5000);
-    
-    // Add focus animation to input
-    const usernameField = document.getElementById('username');
-    if (usernameField) {
-        usernameField.addEventListener('focus', function() {
-            this.parentElement.parentElement.style.transform = 'translateY(-2px)';
-        });
-        
-        usernameField.addEventListener('blur', function() {
-            this.parentElement.parentElement.style.transform = 'translateY(0)';
-        });
-    }
-    
-    // Header scroll effect
-    let lastScroll = 0;
-    const header = document.querySelector('header');
-    
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll <= 0) {
-            header.style.transform = 'translateY(0)';
-            return;
-        }
-        
-        if (currentScroll > lastScroll && currentScroll > 100) {
-            // Scroll down - hide header
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            // Scroll up - show header
-            header.style.transform = 'translateY(0)';
-        }
-        
-        lastScroll = currentScroll;
-    });
 </script>
 </body>
 </html>

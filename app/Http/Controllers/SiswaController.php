@@ -109,13 +109,26 @@ class SiswaController extends Controller
         }
 
         $siswa_id = session('siswa_id');
+        
+        // 1. Cek apakah eskul ada
+        $eskul = Eskul::findOrFail($id);
 
+        // 2. Cek apakah siswa sudah mendaftar
         $exists = PendaftaranEskul::where('id_siswa', $siswa_id)
             ->where('id_eskul', $id)
             ->exists();
 
         if ($exists) {
             return back()->with('error', 'Anda sudah mendaftar eskul ini!');
+        }
+
+        // 3. Cek kuota
+        $currentRegistrations = PendaftaranEskul::where('id_eskul', $id)
+            ->whereIn('status', ['tunda', 'diterima'])
+            ->count();
+
+        if ($eskul->kuota > 0 && $currentRegistrations >= $eskul->kuota) {
+            return back()->with('error', 'Mohon maaf, kuota untuk ekstrakurikuler ini sudah penuh!');
         }
 
         PendaftaranEskul::create([
@@ -125,7 +138,7 @@ class SiswaController extends Controller
             'status' => 'tunda',
         ]);
 
-        return back()->with('success', 'Pendaftaran berhasil! Menunggu persetujuan.');
+        return back()->with('success', 'Pendaftaran berhasil! Menunggu persetujuan pembina/admin.');
     }
 
     public function presensi()
