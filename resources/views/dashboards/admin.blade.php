@@ -7,7 +7,7 @@
 <div class="bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg shadow-md p-5 mb-5 text-white">
     <div class="flex items-center justify-between">
         <div>
-            <h1 class="text-xl font-bold mb-1">Selamat Datang, {{ auth()->user()->name ?? 'Admin' }}! 👋</h1>
+            <h1 class="text-xl font-bold mb-1">Selamat Datang, {{ auth()->user()->name ?? 'Admin' }}</h1>
             <p class="text-green-100 text-sm">Kelola sistem ekstrakurikuler dengan mudah dan efisien</p>
         </div>
         <div class="hidden md:flex items-center space-x-4 text-sm">
@@ -160,12 +160,12 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                 @forelse($achievements as $achievement)
                 @php
-                    $medals = ['🥇', '🥈', '🥉', '🏆'];
+                    $medals = ['Juara 1', 'Juara 2', 'Juara 3', 'Prestasi'];
                     $medal = $medals[array_rand($medals)];
                 @endphp
                 <div class="bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 p-3 rounded-lg border border-yellow-200 dark:border-yellow-700">
                     <div class="flex items-center mb-2">
-                        <span class="text-2xl mr-3">{{ $medal }}</span>
+                        <span class="text-xs font-semibold px-2 py-1 bg-yellow-200 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-200 rounded mr-3">{{ $medal }}</span>
                         <div class="flex-1">
                             <h3 class="font-semibold text-gray-800 dark:text-white text-sm">{{ $achievement->title }}</h3>
                             <p class="text-xs text-gray-600 dark:text-gray-300">{{ $achievement->author ?? 'Tim Sekolah' }}</p>

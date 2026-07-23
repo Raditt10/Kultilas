@@ -18,27 +18,7 @@
         * {
             font-family: 'Poppins', sans-serif;
         }
-        /* ===== PASTEL LIGHT MODE PALETTE ===== */
-        html:not(.dark) body,
-        html:not(.dark) .bg-gray-100 {
-            background-color: #EEE9E1 !important;
-        }
-        html:not(.dark) .bg-white {
-            background-color: #FDFAF6 !important;
-        }
-        html:not(.dark) .bg-gray-50 {
-            background-color: #F5F1EB !important;
-        }
-        html:not(.dark) .border-gray-100 { border-color: #DDD8CF !important; }
-        html:not(.dark) .border-gray-200 { border-color: #D4CFC7 !important; }
-        html:not(.dark) .divide-gray-200 > * + * { border-color: #DDD8CF !important; }
-        /* Dropdown menus */
-        html:not(.dark) [class*="bg-white"][class*="rounded-xl"][class*="shadow"] {
-            background-color: #FDFAF6 !important;
-        }
-        html:not(.dark) .hover\:bg-gray-100:hover {
-            background-color: #EDE8E0 !important;
-        }
+
     </style>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
@@ -113,7 +93,7 @@
     <div class="bg-gradient-to-r from-green-700 to-green-900 dark:from-gray-800 dark:to-gray-900 shadow-xl ring-1 ring-white/10 relative overflow-visible sticky top-0 z-30 transition-colors duration-200">
         <!-- Decorative overlay -->
         <div class="absolute inset-0 opacity-[0.06] bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-white via-transparent to-transparent pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-400/60 via-green-500/60 to-teal-400/60"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-transparent"></div>
         <div class="flex items-center justify-between px-6 py-4">
             <div class="flex items-center">
                 @if(session('siswa_id'))
@@ -124,7 +104,7 @@
                 </button>
                 @endif
 
-                <img src="{{ asset('images/logo13.png') }}" alt="Kultilas Logo" class="w-8 h-8 mr-3 p-1 bg-white/10 rounded-lg ring-1 ring-white/20" />
+                <img src="{{ asset('images/logo13.png') }}" alt="Kultilas Logo" class="w-8 h-8 mr-3 object-contain" />
 
                 @if(!request()->routeIs('siswa.login') && !request()->routeIs('siswa.register'))
                 <div>

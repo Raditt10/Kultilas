@@ -206,73 +206,6 @@
             .counter { font-size: 1.8rem; }
         }
 
-        /* ===== PASTEL LIGHT MODE PALETTE ===== */
-        html:not(.dark) body {
-            background-color: #EEE9E1 !important;
-        }
-
-        /* Navbar */
-        html:not(.dark) nav.bg-white\/95 {
-            background-color: rgba(253, 250, 246, 0.97) !important;
-            border-bottom-color: #DDD8CF !important;
-        }
-
-        /* Nav pill background */
-        html:not(.dark) .bg-gray-100\/80 {
-            background-color: rgba(237, 232, 224, 0.85) !important;
-        }
-
-        /* Nav dark mode toggle button bg */
-        html:not(.dark) .bg-gray-100 {
-            background-color: #EDE8E0 !important;
-        }
-
-        /* ── Section backgrounds: target by ID to bypass Tailwind CSS-var gradients ── */
-        html:not(.dark) section#login {
-            background: linear-gradient(to bottom, #F5F1EB, #FDFAF6) !important;
-        }
-
-        html:not(.dark) section#berita {
-            background: linear-gradient(to bottom, #FDFAF6, #F5F1EB) !important;
-        }
-
-        /* Tentang/Ekstrakurikuler section — same warm cream as #berita */
-        html:not(.dark) section#tentang {
-            background: linear-gradient(to bottom, #F5F1EB, #FDFAF6) !important;
-        }
-
-        /* White cards → warm cream */
-        html:not(.dark) .bg-white {
-            background-color: #FDFAF6 !important;
-        }
-
-        html:not(.dark) .bg-gray-50 {
-            background-color: #F5F1EB !important;
-        }
-
-        /* Card borders */
-        html:not(.dark) .border-gray-100 {
-            border-color: #DDD8CF !important;
-        }
-        html:not(.dark) .border-gray-200 {
-            border-color: #D4CFC7 !important;
-        }
-
-        /* Green-100 pastel badge backgrounds — keep colorful, just slightly warmer */
-        html:not(.dark) .bg-green-100 { background-color: #D9F3E5 !important; }
-        html:not(.dark) .bg-blue-100  { background-color: #DAEEFF !important; }
-        html:not(.dark) .bg-purple-100{ background-color: #EDE0FF !important; }
-        html:not(.dark) .bg-red-100   { background-color: #FFDEDC !important; }
-
-        /* Card inner border on eskul flip cards */
-        html:not(.dark) .border-gray-100.dark\:border-gray-700 {
-            border-color: #DDD8CF !important;
-        }
-
-        /* Pengumuman section light mode */
-        html:not(.dark) section#pengumuman {
-            background: linear-gradient(to bottom, #F5F1EB, #FDFAF6) !important;
-        }
 
         /* Hide scrollbar for horizontal scroll */
         .scrollbar-hide::-webkit-scrollbar {
@@ -307,7 +240,7 @@
             <div class="flex justify-between items-center">
                <!-- Logo & Brand -->
                 <div class="flex items-center gap-3">
-                    <div class="h-14 w-14 rounded-xl flex items-center justify-center p-2 bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm">
+                    <div class="h-14 w-14 flex items-center justify-center p-2">
                         <img src="{{ asset('images/logo13.png') }}" alt="Logo Kultilas" class="h-full w-full object-contain">
                     </div>
                     <div>
@@ -510,9 +443,9 @@
         <div class="container mx-auto px-6 relative z-10">
             <!-- Header with "Lihat Semua" link -->
             <div class="flex items-center justify-between mb-10 scroll-reveal">
-                <div>
+                <div class="flex flex-col items-center">
                     <h3 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Pengumuman</h3>
-                    <div class="w-16 h-1 bg-gradient-to-r from-green-600 to-green-400 rounded-full mt-3"></div>
+                    <div class="w-32 h-1 bg-gradient-to-r from-green-600 to-green-400 rounded-full mt-3"></div>
                 </div>
             </div>
 

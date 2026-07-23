@@ -255,76 +255,7 @@
             50% { opacity: 0.7; }
         }
 
-        /* ===== PASTEL LIGHT MODE PALETTE ===== */
-        /* Only applies when NOT in dark mode */
-        html:not(.dark) body {
-            background-color: #EEE9E1 !important;
-        }
 
-        /* Sidebar & cards */
-        html:not(.dark) #sidebar {
-            background-color: #F9F7F3 !important;
-            border-right-color: #DDD8CF !important;
-        }
-
-        /* Sidebar logo area border */
-        html:not(.dark) #sidebar .border-b {
-            border-color: #DDD8CF !important;
-        }
-
-        /* Main wrapper top bar — keep green gradient, no override needed */
-
-        /* White cards → warm cream */
-        html:not(.dark) .bg-white {
-            background-color: #FDFAF6 !important;
-        }
-
-        /* Gray-50 subtle sections → warmer off-white */
-        html:not(.dark) .bg-gray-50 {
-            background-color: #F5F1EB !important;
-        }
-
-        /* Gray-100 backgrounds → warm pastel */
-        html:not(.dark) .bg-gray-100 {
-            background-color: #EDE8E0 !important;
-        }
-
-        /* Table header */
-        html:not(.dark) thead .bg-gray-50,
-        html:not(.dark) thead tr {
-            background-color: #EDE8E0 !important;
-        }
-
-        /* Card borders → softer warm tone */
-        html:not(.dark) .border-gray-100 {
-            border-color: #DDD8CF !important;
-        }
-        html:not(.dark) .border-gray-200 {
-            border-color: #D4CFC7 !important;
-        }
-
-        /* Hover states */
-        html:not(.dark) .hover\:bg-green-50:hover {
-            background-color: #EDFAF1 !important;
-        }
-        html:not(.dark) .hover\:bg-gray-100:hover {
-            background-color: #E5E0D8 !important;
-        }
-
-        /* Active nav item */
-        html:not(.dark) .bg-green-100 {
-            background-color: #D9F3E5 !important;
-        }
-
-        /* Sidebar nav hover */
-        html:not(.dark) .nav-link:hover {
-            background-color: #EAF7F0 !important;
-        }
-
-        /* Table dividers */
-        html:not(.dark) .divide-gray-200 > * + * {
-            border-color: #DDD8CF !important;
-        }
     </style>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
@@ -445,7 +376,7 @@
         <div class="bg-gradient-to-r from-green-700 to-green-900 dark:from-gray-800 dark:to-gray-900 shadow-xl ring-1 ring-white/10 relative overflow-visible sticky top-0 z-30 transition-colors duration-200">
             <!-- Decorative overlay -->
             <div class="absolute inset-0 opacity-[0.06] bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-white via-transparent to-transparent pointer-events-none"></div>
-            <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-400/60 via-green-500/60 to-teal-400/60"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-transparent"></div>
             <div class="flex items-center justify-between px-6 py-4">
                 <button onclick="toggleSidebar()" class="text-white hover:text-green-200 dark:hover:text-gray-300 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

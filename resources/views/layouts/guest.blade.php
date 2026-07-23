@@ -33,29 +33,7 @@
                 background-image: linear-gradient(rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.95)), url('/images/smkn13.jpg');
             }
 
-        /* ===== PASTEL LIGHT MODE PALETTE ===== */
-        html:not(.dark) .bg-white {
-            background-color: #FDFAF6 !important;
-        }
-        /* Form card */
-        html:not(.dark) .bg-white\/95 {
-            background-color: rgba(253, 250, 246, 0.97) !important;
-            border-color: rgba(221, 216, 207, 0.4) !important;
-        }
-        /* Input fields */
-        html:not(.dark) input[type="text"],
-        html:not(.dark) input[type="email"],
-        html:not(.dark) input[type="password"] {
-            background-color: #F5F1EB !important;
-            border-color: #C8C3BB !important;
-        }
-        html:not(.dark) input[type="text"]:focus,
-        html:not(.dark) input[type="email"]:focus,
-        html:not(.dark) input[type="password"]:focus {
-            background-color: #FDFAF6 !important;
-            border-color: #16a34a !important;
-            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12) !important;
-        }
+
         </style>
     </head>
     <body class="antialiased dark:bg-gray-900 transition-colors duration-200">

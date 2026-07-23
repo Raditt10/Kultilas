@@ -12,7 +12,7 @@
             </a>
             <div>
                 <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                    ➕ Tambah Konten Dashboard
+                    Tambah Konten Dashboard
                 </h1>
                 <p class="text-gray-600 dark:text-gray-300">
                     Buat konten baru untuk dashboard siswa

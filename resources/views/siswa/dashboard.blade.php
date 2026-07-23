@@ -3,29 +3,8 @@
 @section('title', 'Dashboard Siswa')
 
 @section('content')
-<!-- Animated Background Layer -->
-<div class="fixed inset-0 -z-10 overflow-hidden">
-    <!-- Gradient Base -->
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 via-green-50 to-emerald-50 dark:from-gray-900 dark:via-emerald-950 dark:to-teal-900"></div>
-    
-    <!-- Animated Gradient Overlay -->
-    <div class="absolute inset-0 opacity-30">
-        <div class="absolute top-0 -left-20 w-96 h-96 bg-gradient-to-br from-green-400 to-emerald-400 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl animate-blob"></div>
-        <div class="absolute top-0 -right-20 w-96 h-96 bg-gradient-to-br from-teal-400 to-cyan-400 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl animate-blob animation-delay-2000"></div>
-        <div class="absolute -bottom-20 left-1/2 w-96 h-96 bg-gradient-to-br from-emerald-400 to-green-400 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl animate-blob animation-delay-4000"></div>
-    </div>
-    
-    <!-- Decorative Circles -->
-    <div class="absolute top-20 left-10 w-72 h-72 bg-green-200/20 dark:bg-green-500/10 rounded-full blur-3xl"></div>
-    <div class="absolute top-40 right-20 w-96 h-96 bg-emerald-200/20 dark:bg-emerald-500/10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-teal-200/20 dark:bg-teal-500/10 rounded-full blur-3xl"></div>
-    
-    <!-- Grid Pattern -->
-    <div class="absolute inset-0 opacity-5 dark:opacity-10" style="background-image: linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
-    
-    <!-- Dots Pattern -->
-    <div class="absolute inset-0 opacity-20 dark:opacity-10" style="background-image: radial-gradient(circle, rgba(16, 185, 129, 0.15) 1px, transparent 1px); background-size: 30px 30px;"></div>
-</div>
+<!-- Clean Background Layer -->
+<div class="fixed inset-0 -z-10 bg-gray-100 dark:bg-gray-900"></div>
 
 <div class="relative min-h-screen">
 <div class="space-y-8 p-4">
@@ -39,7 +18,7 @@
         <!-- Decorative Pattern -->
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
         <div class="relative z-10">
-            <h1 class="text-3xl font-bold mb-2">Selamat Datang, {{ $siswa->nama_siswa }}! 🎉</h1>
+            <h1 class="text-3xl font-bold mb-2">Selamat Datang, {{ $siswa->nama_siswa }}</h1>
             <p class="text-green-100 text-lg">Kelas {{ $siswa->kelas ?? 'XI' }} • NIS: {{ $siswa->nis }}</p>
             <div class="mt-4 flex items-center space-x-4">
                 <div class="flex items-center">
@@ -58,56 +37,6 @@
         </div>
     </div>
 
-    <!-- Statistics Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-2xl hover:scale-105 transition-all duration-300 border-l-4 border-green-500 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-green-100/60 dark:bg-green-500/10 rounded-full blur-2xl"></div>
-            <div class="flex items-center justify-between">
-                <div>
-                    <h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium uppercase tracking-wider">Eskul Aktif</h3>
-                    <p class="text-3xl font-bold text-green-600 dark:text-green-400 mt-2">{{ $pendaftaran->where('status', 'diterima')->count() }}</p>
-                    <p class="text-green-600 dark:text-green-400 text-sm mt-1">{{ $pendaftaran->where('status', 'diterima')->count() > 0 ? 'Aktif berkegiatan' : 'Belum ada eskul' }}</p>
-                </div>
-                <div class="bg-green-100 dark:bg-green-900 p-3 rounded-full">
-                    <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-2xl hover:scale-105 transition-all duration-300 border-l-4 border-yellow-500 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-yellow-100/60 dark:bg-yellow-500/10 rounded-full blur-2xl"></div>
-            <div class="flex items-center justify-between">
-                <div>
-                    <h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium uppercase tracking-wider">Menunggu Approval</h3>
-                    <p class="text-3xl font-bold text-yellow-600 dark:text-yellow-400 mt-2">{{ $pendaftaran->where('status', 'pending')->count() }}</p>
-                    <p class="text-yellow-600 dark:text-yellow-400 text-sm mt-1">{{ $pendaftaran->where('status', 'pending')->count() > 0 ? 'Sedang diproses' : 'Tidak ada pending' }}</p>
-                </div>
-                <div class="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-full">
-                    <svg class="w-8 h-8 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-2xl hover:scale-105 transition-all duration-300 border-l-4 border-purple-500 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-purple-100/60 dark:bg-purple-500/10 rounded-full blur-2xl"></div>
-            <div class="flex items-center justify-between">
-                <div>
-                    <h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium uppercase tracking-wider">Total Prestasi</h3>
-                    <p class="text-3xl font-bold text-purple-600 dark:text-purple-400 mt-2">{{ rand(0, 5) }}</p>
-                    <p class="text-purple-600 dark:text-purple-400 text-sm mt-1">Pencapaian gemilang</p>
-                </div>
-                <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full">
-                    <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Main Dashboard Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -118,12 +47,12 @@
                 <div class="absolute -top-10 -right-10 w-40 h-40 bg-green-100/60 dark:bg-green-500/10 rounded-full blur-3xl"></div>
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center">
-                        <div class="bg-green-100 dark:bg-green-900 p-3 rounded-lg mr-4">
+                        <div class="mr-3">
                             <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
                             </svg>
                         </div>
-                        <h2 class="text-xl font-bold text-gray-800 dark:text-white">📢 Pengumuman Penting</h2>
+                        <h2 class="text-xl font-bold text-gray-800 dark:text-white">Pengumuman Penting</h2>
                     </div>
                     <span class="text-green-600 hover:text-green-700 text-sm font-medium cursor-pointer">Lihat Semua</span>
                 </div>
@@ -153,83 +82,27 @@
                             </div>
                         </div>
                     @empty
-                        <div class="p-4 rounded-lg border border-dashed border-gray-300 text-sm text-gray-600 dark:text-gray-300">Belum ada pengumuman aktif.</div>
+                        <div class="text-center py-10">
+                            <div class="bg-gray-100 dark:bg-gray-700/60 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <svg class="w-8 h-8 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-base font-semibold text-gray-800 dark:text-white mb-1">Belum Ada Pengumuman</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">Pengumuman dan informasi terbaru dari admin akan muncul di sini.</p>
+                        </div>
                     @endforelse
                 </div>
             </div>
 
-            <!-- Prestasi Terbaru -->
-            <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 transition-all duration-200 hover:shadow-2xl relative overflow-hidden">
-                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-yellow-100/60 dark:bg-yellow-500/10 rounded-full blur-3xl"></div>
-                <div class="flex items-center justify-between mb-6">
-                    <div class="flex items-center">
-                        <div class="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-lg mr-4">
-                            <svg class="w-6 h-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                            </svg>
-                        </div>
-                        <h2 class="text-xl font-bold text-gray-800 dark:text-white">🏆 Hall of Fame</h2>
-                    </div>
-                    <span class="text-yellow-600 hover:text-yellow-700 text-sm font-medium cursor-pointer">Lihat Semua</span>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    @php
-                        $achievements = App\Models\DashboardContent::active()
-                            ->ofType('achievement')
-                            ->orderBy('order')
-                            ->orderBy('created_at', 'desc')
-                            ->limit(4)
-                            ->get()
-                            ->map(function ($item) {
-                                $medal = '🏆';
-                                if (stripos($item->content, 'juara 1') !== false || stripos($item->title, 'juara 1') !== false) {
-                                    $medal = '🥇';
-                                } elseif (stripos($item->content, 'juara 2') !== false || stripos($item->title, 'juara 2') !== false) {
-                                    $medal = '🥈';
-                                } elseif (stripos($item->content, 'juara 3') !== false || stripos($item->title, 'juara 3') !== false) {
-                                    $medal = '🥉';
-                                }
 
-                                return [
-                                    'title' => $item->title,
-                                    'student' => $item->author ?? 'Tim ' . ($item->category ?? 'Eskul'),
-                                    'medal' => $medal,
-                                    'category' => $item->category ?? 'Prestasi',
-                                    'date' => $item->formatted_date ?? optional($item->created_at)->format('d M Y')
-                                ];
-                            });
-
-                        if ($achievements->isEmpty()) {
-                            $achievements = collect([
-                                ['title' => 'Belum Ada Prestasi', 'student' => 'Tunggu update dari admin', 'medal' => '🏆', 'category' => 'Coming Soon', 'date' => 'Segera'],
-                            ]);
-                        }
-                    @endphp
-
-                    @foreach($achievements as $achievement)
-                        <div class="bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 p-4 rounded-lg border border-yellow-200 dark:border-yellow-700 hover:shadow-md transition-all cursor-pointer">
-                            <div class="flex items-center mb-3">
-                                <span class="text-3xl mr-3">{{ $achievement['medal'] }}</span>
-                                <div class="flex-1">
-                                    <h3 class="font-semibold text-gray-800 dark:text-white text-sm">{{ $achievement['title'] }}</h3>
-                                    <p class="text-xs text-gray-600 dark:text-gray-300">{{ $achievement['student'] }}</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="inline-block px-2 py-1 text-xs bg-yellow-200 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-200 rounded-full">{{ $achievement['category'] }}</span>
-                                <span class="text-xs text-gray-500 dark:text-gray-400">{{ $achievement['date'] }}</span>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
 
             <!-- Ekstrakurikuler Saya -->
             <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 transition-all duration-200 hover:shadow-2xl relative overflow-hidden">
                 <div class="absolute -top-10 -left-10 w-40 h-40 bg-emerald-100/60 dark:bg-emerald-500/10 rounded-full blur-3xl"></div>
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center">
-                        <div class="bg-emerald-100 dark:bg-emerald-900 p-3 rounded-lg mr-4">
+                        <div class="mr-3">
                             <svg class="w-6 h-6 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                             </svg>
@@ -311,53 +184,12 @@
 
         <!-- Right Column -->
         <div class="space-y-8">
-            <!-- Quick Actions / Menu Cepat -->
-            <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 relative overflow-hidden">
-                <div class="absolute -top-10 -right-10 w-32 h-32 bg-green-100/60 dark:bg-green-500/10 rounded-full blur-3xl"></div>
-                <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-6">⚡ Menu Cepat</h2>
-                <div class="space-y-3">
-                    <a href="{{ route('siswa.eskul') }}" class="flex items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors group">
-                        <div class="bg-green-500 p-2 rounded-lg mr-3 group-hover:scale-110 transition-transform">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <span class="font-semibold text-gray-800 dark:text-white text-sm">Daftar Eskul</span>
-                            <p class="text-gray-600 dark:text-gray-300 text-xs">Pilih ekstrakurikuler</p>
-                        </div>
-                    </a>
-                    
-                    <a href="#" class="flex items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors group">
-                        <div class="bg-green-500 p-2 rounded-lg mr-3 group-hover:scale-110 transition-transform">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <span class="font-semibold text-gray-800 dark:text-white text-sm">Presensi</span>
-                            <p class="text-gray-600 dark:text-gray-300 text-xs">Cek kehadiran</p>
-                        </div>
-                    </a>
-                    
-                    <a href="#" class="flex items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors group">
-                        <div class="bg-purple-500 p-2 rounded-lg mr-3 group-hover:scale-110 transition-transform">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <span class="font-semibold text-gray-800 dark:text-white text-sm">Profil</span>
-                            <p class="text-gray-600 dark:text-gray-300 text-xs">Edit data diri</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+
 
             <!-- Tips & Motivasi -->
             <div class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-6 relative overflow-hidden">
                 <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-indigo-100/60 dark:bg-indigo-500/10 rounded-full blur-3xl"></div>
-                <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-6">💡 Tips Hari Ini</h2>
+                <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-6">Tips Hari Ini</h2>
                 <div class="space-y-4">
                     @php
                         $tips = App\Models\DashboardContent::active()
@@ -388,7 +220,6 @@
                             <p class="text-gray-600 dark:text-gray-300 text-xs mb-3">{{ $tip['content'] }}</p>
                             <div class="flex items-center justify-between">
                                 <span class="text-xs text-indigo-600 dark:text-indigo-400 font-medium">- {{ $tip['author'] }}</span>
-                                <span class="text-xs text-gray-400">💡</span>
                             </div>
                         </div>
                     @endforeach

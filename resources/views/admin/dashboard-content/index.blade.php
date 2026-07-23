@@ -8,7 +8,7 @@
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
             <div>
                 <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                    🛠️ Kelola Konten Dashboard
+                    Kelola Konten Dashboard
                 </h1>
                 <p class="text-gray-600 dark:text-gray-300">
                     Kelola pengumuman, prestasi, dan konten interaktif untuk dashboard siswa

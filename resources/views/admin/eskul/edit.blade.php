@@ -17,7 +17,7 @@
                 </svg>
             </div>
             <div>
-                <h2 class="font-bold text-2xl text-white leading-tight">✏️ Edit Ekstrakurikuler</h2>
+                <h2 class="font-bold text-2xl text-white leading-tight">Edit Ekstrakurikuler</h2>
                 <p class="text-green-100 dark:text-gray-300 text-sm mt-1">Edit informasi: {{ $eskul->nama_eskul }}</p>
             </div>
         </div>

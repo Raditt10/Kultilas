@@ -12,7 +12,7 @@
             </a>
             <div class="flex-1">
                 <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                    👁️ Detail Konten Dashboard
+                    Detail Konten Dashboard
                 </h1>
                 <p class="text-gray-600 dark:text-gray-300">
                     Lihat detail konten "{{ $dashboardContent->title }}"

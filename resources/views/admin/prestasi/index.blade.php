@@ -14,7 +14,7 @@
                     </svg>
                 </div>
                 <div>
-                    <h2 class="font-bold text-2xl text-white leading-tight">🏆 Kelola Prestasi Siswa</h2>
+                    <h2 class="font-bold text-2xl text-white leading-tight">Kelola Prestasi Siswa</h2>
                     <p class="text-green-100 dark:text-gray-300 text-sm mt-1">Kelola pencapaian dan penghargaan siswa ekstrakurikuler</p>
                 </div>
             </div>
