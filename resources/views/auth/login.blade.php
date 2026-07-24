@@ -18,13 +18,13 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
         body {
-            background: transparent;
+            background-color: #0f172a;
         }
         .full-bg {
             position: fixed;
@@ -32,24 +32,22 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 118, 110, 0.7) 100%), url('/images/smkn13.jpg');
+            background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(6, 78, 59, 0.85) 100%), url('/images/smkn13.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            filter: blur(4px) brightness(0.95);
             z-index: -1;
         }
     
         .glass-card {
-            background: rgba(253, 250, 246, 0.97);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(221, 216, 207, 0.4);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
         
         .dark .glass-card {
-            background: rgba(30, 41, 59, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1e293b;
+            border: 1px solid #334155;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
         }
         
         .btn-primary {
@@ -253,3 +251,4 @@
 </script>
 </body>
 </html>
+    

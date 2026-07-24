@@ -3,35 +3,32 @@
 @section('title', 'Dashboard Siswa')
 
 @section('content')
-<!-- Clean Background Layer -->
 <div class="fixed inset-0 -z-10 bg-gray-100 dark:bg-gray-900"></div>
 
 <div class="relative min-h-screen">
 <div class="space-y-8 p-4">
     <!-- Welcome Header -->
-    <div class="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 rounded-2xl shadow-xl p-8 text-white relative overflow-hidden">
-        <!-- Decorative Background Elements -->
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 left-0 w-64 h-64 bg-teal-400 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
-        </div>
-        <!-- Decorative Pattern -->
-        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-800 via-emerald-700 to-teal-700 p-8 text-white shadow-xl border border-white/10">
+        <!-- Ambient Glows -->
+        <div class="absolute -right-10 -top-10 h-72 w-72 rounded-full bg-emerald-400/20 blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-10 -bottom-10 h-72 w-72 rounded-full bg-teal-400/20 blur-3xl pointer-events-none"></div>
+
+        <!-- Content -->
         <div class="relative z-10">
-            <h1 class="text-3xl font-bold mb-2">Selamat Datang, {{ $siswa->nama_siswa }}</h1>
-            <p class="text-green-100 text-lg">Kelas {{ $siswa->kelas ?? 'XI' }} • NIS: {{ $siswa->nis }}</p>
-            <div class="mt-4 flex items-center space-x-4">
-                <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <h1 class="text-3xl font-extrabold tracking-tight mb-1.5 drop-shadow-sm">Selamat Datang, {{ $siswa->nama_siswa }}</h1>
+            <p class="text-emerald-100 text-base sm:text-lg font-medium opacity-90">Kelas {{ $siswa->kelas ?? 'XI' }}</p>
+            <div class="mt-5 flex flex-wrap items-center gap-3 text-xs sm:text-sm text-emerald-50">
+                <div class="flex items-center bg-white/10 backdrop-blur-sm px-3.5 py-1.5 rounded-lg border border-white/10 shadow-sm">
+                    <svg class="w-4 h-4 mr-2 text-emerald-300" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                     </svg>
-                    <span class="text-sm">{{ now()->format('l, d F Y') }}</span>
+                    <span>{{ now()->format('l, d F Y') }}</span>
                 </div>
-                <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <div class="flex items-center bg-white/10 backdrop-blur-sm px-3.5 py-1.5 rounded-lg border border-white/10 shadow-sm">
+                    <svg class="w-4 h-4 mr-2 text-emerald-300" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
                     </svg>
-                    <span class="text-sm">{{ now()->format('H:i') }} WIB</span>
+                    <span>{{ now()->format('H:i') }} WIB</span>
                 </div>
             </div>
         </div>
